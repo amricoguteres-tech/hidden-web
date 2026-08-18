@@ -1,0 +1,1135 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#000814" />
+    <title>Hidden Web – Masuk / Daftar</title>
+    <meta
+      name="description"
+      content="Masuk atau daftar akun Hidden Web untuk mengakses dashboard proyek, kalkulator harga, dan layanan premium lainnya."
+    />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=IBM+Plex+Mono:wght@500&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --bg: #000814;
+        --bg-soft: #001229;
+        --text: #eaeaea;
+        --accent: #00ffcc;
+        --btn: #0066ff;
+        --muted: #8b93a1;
+        --success: #00d084;
+        --danger: #ff6b6b;
+        --pink: #ff00ff;
+        --purple: #9d4edd;
+        --cyan: #00f5ff;
+        --yellow: #ffcc00;
+        --line: rgba(255, 255, 255, 0.09);
+        --field-bg: rgba(255, 255, 255, 0.035);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        overflow-x: hidden;
+        -webkit-font-smoothing: antialiased;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+        }
+      }
+
+      .wrap {
+        display: flex;
+        min-height: 100vh;
+      }
+
+      /* ===================== LEFT / BRAND PANEL ===================== */
+      .brand {
+        position: relative;
+        flex: 0 0 42%;
+        background:
+          radial-gradient(
+            circle at 30% 20%,
+            rgba(0, 255, 204, 0.08) 0%,
+            transparent 55%
+          ),
+          radial-gradient(
+            circle at 80% 85%,
+            rgba(157, 78, 221, 0.1) 0%,
+            transparent 55%
+          ),
+          linear-gradient(160deg, #000814 0%, #001229 60%, #000814 100%);
+        border-right: 1px solid var(--line);
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 52px;
+        overflow: hidden;
+      }
+
+      .bg-particles {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        overflow: hidden;
+      }
+
+      .particle {
+        position: absolute;
+        background: var(--accent);
+        border-radius: 50%;
+        animation: float 18s infinite linear;
+        opacity: 0.35;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(110%) rotate(0deg);
+          opacity: 0;
+        }
+        12% {
+          opacity: 0.4;
+        }
+        88% {
+          opacity: 0.4;
+        }
+        100% {
+          transform: translateY(-10%) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      .brand-top {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .logo-icon {
+        width: 38px;
+        height: 38px;
+        background: linear-gradient(135deg, var(--accent), var(--purple));
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: 800;
+        font-size: 0.85rem;
+        color: #000814;
+        flex-shrink: 0;
+      }
+
+      .brand-name {
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.82rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--muted);
+      }
+
+      .brand-mid {
+        position: relative;
+        z-index: 1;
+        max-width: 420px;
+      }
+
+      .brand-mid .kicker {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        color: var(--accent);
+        background: rgba(0, 255, 204, 0.08);
+        border: 1px solid rgba(0, 255, 204, 0.2);
+        padding: 6px 14px;
+        border-radius: 100px;
+        margin-bottom: 24px;
+      }
+
+      .brand-mid h1 {
+        font-size: clamp(1.9rem, 2.6vw, 2.5rem);
+        font-weight: 800;
+        line-height: 1.22;
+        letter-spacing: -0.01em;
+        margin-bottom: 18px;
+      }
+
+      .brand-mid h1 span {
+        background: linear-gradient(90deg, var(--accent), var(--cyan));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .brand-mid p {
+        font-size: 0.98rem;
+        line-height: 1.65;
+        color: var(--muted);
+        max-width: 380px;
+      }
+
+      .brand-stats {
+        position: relative;
+        z-index: 1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 18px;
+        margin-top: 44px;
+        padding-top: 32px;
+        border-top: 1px solid var(--line);
+        max-width: 420px;
+      }
+
+      .brand-stats .stat-num {
+        font-size: 1.5rem;
+        font-weight: 800;
+        background: linear-gradient(90deg, var(--accent), var(--purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1;
+        margin-bottom: 6px;
+      }
+
+      .brand-stats .stat-label {
+        font-size: 0.75rem;
+        color: var(--muted);
+        line-height: 1.4;
+      }
+
+      .brand-bottom {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        font-size: 0.82rem;
+        color: var(--muted);
+      }
+
+      .brand-bottom span {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .brand-bottom i {
+        color: var(--accent);
+        width: 14px;
+        text-align: center;
+      }
+
+      /* ===================== RIGHT / FORM PANEL ===================== */
+      .panel {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 48px 24px;
+        background: var(--bg);
+      }
+
+      .card {
+        width: 100%;
+        max-width: 400px;
+      }
+
+      .mobile-logo {
+        display: none;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 36px;
+      }
+
+      .mobile-logo span {
+        font-size: 1.05rem;
+        font-weight: 800;
+        background: linear-gradient(90deg, var(--accent), var(--purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .card-head {
+        margin-bottom: 30px;
+      }
+
+      .card-head .eyebrow {
+        display: inline-block;
+        font-family: "IBM Plex Mono", monospace;
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 12px;
+      }
+
+      .card-head h2 {
+        font-size: 1.65rem;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+        margin-bottom: 8px;
+      }
+
+      .card-head p {
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      /* Tabs */
+      .tabs {
+        display: flex;
+        background: var(--field-bg);
+        border: 1px solid var(--line);
+        border-radius: 11px;
+        padding: 4px;
+        margin-bottom: 28px;
+        position: relative;
+      }
+
+      .tab {
+        flex: 1;
+        text-align: center;
+        padding: 10px 0;
+        background: none;
+        border: none;
+        border-radius: 8px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--muted);
+        cursor: pointer;
+        position: relative;
+        z-index: 2;
+        transition: color 0.25s ease;
+      }
+
+      .tab.active {
+        color: #000814;
+      }
+
+      .tab-indicator {
+        position: absolute;
+        top: 4px;
+        bottom: 4px;
+        left: 4px;
+        width: calc(50% - 4px);
+        background: var(--accent);
+        border-radius: 8px;
+        transition: transform 0.32s cubic-bezier(0.65, 0, 0.35, 1);
+        z-index: 1;
+      }
+
+      .tab-indicator.to-register {
+        transform: translateX(100%);
+      }
+
+      /* Forms */
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 17px;
+      }
+      form.hidden {
+        display: none;
+      }
+
+      .field {
+        display: flex;
+        flex-direction: column;
+        gap: 7px;
+      }
+
+      .field label {
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--text);
+      }
+
+      .input-wrap {
+        position: relative;
+        display: flex;
+        align-items: center;
+      }
+
+      .input-icon {
+        position: absolute;
+        left: 14px;
+        color: var(--muted);
+        font-size: 0.85rem;
+        pointer-events: none;
+        transition: color 0.2s ease;
+      }
+
+      .field input {
+        width: 100%;
+        font-family: "Inter", sans-serif;
+        font-size: 0.9rem;
+        padding: 12px 14px 12px 39px;
+        border-radius: 9px;
+        border: 1px solid var(--line);
+        background: var(--field-bg);
+        color: var(--text);
+        outline: none;
+        transition:
+          border-color 0.18s ease,
+          box-shadow 0.18s ease,
+          background 0.18s ease;
+      }
+
+      .field input::placeholder {
+        color: #5b6472;
+      }
+
+      .field input:focus {
+        border-color: var(--accent);
+        background: rgba(0, 255, 204, 0.035);
+        box-shadow: 0 0 0 3px rgba(0, 255, 204, 0.1);
+      }
+
+      .input-wrap:focus-within .input-icon {
+        color: var(--accent);
+      }
+
+      .toggle-pass {
+        position: absolute;
+        right: 12px;
+        background: none;
+        border: none;
+        cursor: pointer;
+        color: var(--muted);
+        font-size: 0.82rem;
+        padding: 4px;
+        transition: color 0.2s ease;
+      }
+
+      .toggle-pass:hover {
+        color: var(--accent);
+      }
+
+      .hint {
+        font-size: 0.76rem;
+        color: var(--muted);
+      }
+      .hint.error {
+        color: var(--danger);
+      }
+
+      .row-between {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size: 0.83rem;
+      }
+
+      .checkbox-row {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
+        color: var(--muted);
+        line-height: 1.4;
+      }
+
+      .checkbox-row input {
+        accent-color: var(--accent);
+        width: 15px;
+        height: 15px;
+        margin-top: 2px;
+        flex-shrink: 0;
+      }
+
+      a.link {
+        color: var(--accent);
+        text-decoration: none;
+        font-weight: 600;
+      }
+      a.link:hover {
+        text-decoration: underline;
+      }
+
+      .submit-btn {
+        margin-top: 4px;
+        padding: 13px 18px;
+        border-radius: 9px;
+        border: none;
+        background: linear-gradient(135deg, var(--btn), var(--purple));
+        color: white;
+        font-size: 0.92rem;
+        font-weight: 700;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        position: relative;
+        overflow: hidden;
+        transition:
+          transform 0.18s ease,
+          box-shadow 0.18s ease,
+          opacity 0.18s ease;
+      }
+
+      .submit-btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.22),
+          transparent
+        );
+        transition: left 0.6s;
+      }
+
+      .submit-btn:hover::before {
+        left: 100%;
+      }
+      .submit-btn:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 22px rgba(0, 102, 255, 0.3);
+      }
+      .submit-btn:active {
+        transform: scale(0.98);
+      }
+      .submit-btn:focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+      }
+      .submit-btn.loading {
+        pointer-events: none;
+        opacity: 0.85;
+      }
+
+      .spinner {
+        width: 15px;
+        height: 15px;
+        border: 2px solid rgba(255, 255, 255, 0.35);
+        border-top-color: #fff;
+        border-radius: 50%;
+        animation: spin 0.7s linear infinite;
+        display: none;
+      }
+
+      .submit-btn.loading .spinner {
+        display: inline-block;
+      }
+      .submit-btn.loading .btn-label {
+        display: none;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      .switch-line {
+        text-align: center;
+        font-size: 0.86rem;
+        color: var(--muted);
+        margin-top: 2px;
+      }
+      .switch-line button {
+        background: none;
+        border: none;
+        color: var(--accent);
+        font-weight: 700;
+        cursor: pointer;
+        font-size: 0.86rem;
+        padding: 0;
+      }
+      .switch-line button:hover {
+        text-decoration: underline;
+      }
+
+      .strength-bar {
+        display: flex;
+        gap: 4px;
+        margin-top: 2px;
+      }
+      .strength-bar i {
+        flex: 1;
+        height: 4px;
+        border-radius: 2px;
+        background: var(--line);
+        transition: background 0.25s ease;
+      }
+
+      .divider {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--muted);
+        font-size: 0.78rem;
+        margin: 24px 0 22px;
+      }
+      .divider::before,
+      .divider::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--line);
+      }
+
+      .footer-note {
+        text-align: center;
+        font-size: 0.78rem;
+        color: #5b6472;
+        margin-top: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+      }
+      .footer-note i {
+        color: var(--muted);
+      }
+
+      .toast {
+        position: fixed;
+        bottom: 24px;
+        left: 50%;
+        transform: translateX(-50%) translateY(20px);
+        background: #001229;
+        border: 1px solid var(--accent);
+        color: var(--text);
+        padding: 13px 22px;
+        border-radius: 10px;
+        font-size: 0.88rem;
+        font-weight: 500;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          opacity 0.3s ease,
+          transform 0.3s ease;
+        z-index: 50;
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      }
+      .toast.show {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+        pointer-events: auto;
+      }
+      .toast i {
+        color: var(--accent);
+      }
+
+      @media (max-width: 920px) {
+        .brand {
+          display: none;
+        }
+        .mobile-logo {
+          display: flex;
+        }
+        .panel {
+          padding: 40px 20px;
+        }
+      }
+
+      @media (max-width: 420px) {
+        .card-head h2 {
+          font-size: 1.4rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="wrap">
+      <!-- BRAND PANEL -->
+      <div class="brand">
+        <div class="bg-particles" id="particles"></div>
+
+        <div class="brand-top">
+          <div class="logo-icon">HW</div>
+          <span class="brand-name">Hidden Web</span>
+        </div>
+
+        <div class="brand-mid">
+          <span class="kicker"
+            ><i class="fas fa-shield-halved"></i> Akses Aman &amp;
+            Terenkripsi</span
+          >
+          <h1>Kelola proyek website kamu dari <span>satu dashboard.</span></h1>
+          <p>
+            Masuk untuk memantau progres pengerjaan, mengelola pembayaran, dan
+            berkomunikasi langsung dengan tim development kami.
+          </p>
+        </div>
+
+        <div class="brand-stats">
+          <div>
+            <div class="stat-num">247</div>
+            <div class="stat-label">Klien aktif</div>
+          </div>
+          <div>
+            <div class="stat-num">4.9/5</div>
+            <div class="stat-label">Rating layanan</div>
+          </div>
+          <div>
+            <div class="stat-num">156</div>
+            <div class="stat-label">Proyek selesai</div>
+          </div>
+        </div>
+
+        <div class="brand-bottom">
+          <span
+            ><i class="fas fa-lock"></i> Enkripsi end-to-end untuk seluruh data
+            akun</span
+          >
+          <span
+            ><i class="fas fa-headset"></i> Tim support siap membantu 24/7</span
+          >
+        </div>
+      </div>
+
+      <!-- FORM PANEL -->
+      <div class="panel">
+        <div class="card">
+          <div class="mobile-logo">
+            <div class="logo-icon">HW</div>
+            <span>Hidden Web</span>
+          </div>
+
+          <div class="card-head">
+            <span class="eyebrow" id="eyebrow">SELAMAT DATANG KEMBALI</span>
+            <h2 id="heading">Masuk ke akunmu</h2>
+            <p id="subheading">Lanjutkan mengelola proyek dan layanan kamu.</p>
+          </div>
+
+          <div class="tabs">
+            <button class="tab active" id="tabLogin" type="button">
+              Masuk
+            </button>
+            <button class="tab" id="tabRegister" type="button">Daftar</button>
+            <div class="tab-indicator" id="tabIndicator"></div>
+          </div>
+
+          <!-- LOGIN FORM -->
+          <form id="loginForm" novalidate>
+            <div class="field">
+              <label for="loginEmail">Email</label>
+              <div class="input-wrap">
+                <i class="fas fa-envelope input-icon"></i>
+                <input
+                  type="email"
+                  id="loginEmail"
+                  placeholder="nama@perusahaan.com"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+              <span
+                class="hint error"
+                id="loginEmailError"
+                style="display: none"
+                >Masukkan alamat email yang valid.</span
+              >
+            </div>
+
+            <div class="field">
+              <label for="loginPassword">Kata sandi</label>
+              <div class="input-wrap">
+                <i class="fas fa-lock input-icon"></i>
+                <input
+                  type="password"
+                  id="loginPassword"
+                  placeholder="Masukkan kata sandi"
+                  required
+                  autocomplete="current-password"
+                />
+                <button
+                  type="button"
+                  class="toggle-pass"
+                  data-target="loginPassword"
+                  aria-label="Tampilkan kata sandi"
+                >
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <div class="row-between">
+              <label class="checkbox-row">
+                <input type="checkbox" id="rememberMe" />
+                Ingat saya
+              </label>
+              <a href="./lupasandi.html" class="link">Lupa kata sandi?</a>
+            </div>
+
+            <button type="submit" class="submit-btn">
+              <span class="spinner"></span>
+              <span class="btn-label"
+                ><i class="fas fa-right-to-bracket"></i> Masuk</span
+              >
+            </button>
+
+            <div class="switch-line">
+              Belum punya akun?
+              <button type="button" id="goRegister">Daftar di sini</button>
+            </div>
+          </form>
+
+          <!-- REGISTER FORM -->
+          <form id="registerForm" class="hidden" novalidate>
+            <div class="field">
+              <label for="regName">Nama lengkap</label>
+              <div class="input-wrap">
+                <i class="fas fa-user input-icon"></i>
+                <input
+                  type="text"
+                  id="regName"
+                  placeholder="Nama kamu"
+                  required
+                  autocomplete="name"
+                />
+              </div>
+            </div>
+
+            <div class="field">
+              <label for="regEmail">Email</label>
+              <div class="input-wrap">
+                <i class="fas fa-envelope input-icon"></i>
+                <input
+                  type="email"
+                  id="regEmail"
+                  placeholder="nama@perusahaan.com"
+                  required
+                  autocomplete="email"
+                />
+              </div>
+              <span class="hint error" id="regEmailError" style="display: none"
+                >Masukkan alamat email yang valid.</span
+              >
+            </div>
+
+            <div class="field">
+              <label for="regPassword">Kata sandi</label>
+              <div class="input-wrap">
+                <i class="fas fa-lock input-icon"></i>
+                <input
+                  type="password"
+                  id="regPassword"
+                  placeholder="Buat kata sandi"
+                  required
+                  minlength="8"
+                  autocomplete="new-password"
+                />
+                <button
+                  type="button"
+                  class="toggle-pass"
+                  data-target="regPassword"
+                  aria-label="Tampilkan kata sandi"
+                >
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <div class="strength-bar"><i></i><i></i><i></i><i></i></div>
+              <span class="hint" id="strengthLabel">Minimal 8 karakter</span>
+            </div>
+
+            <div class="field">
+              <label for="regConfirm">Konfirmasi kata sandi</label>
+              <div class="input-wrap">
+                <i class="fas fa-lock input-icon"></i>
+                <input
+                  type="password"
+                  id="regConfirm"
+                  placeholder="Ulangi kata sandi"
+                  required
+                  autocomplete="new-password"
+                />
+                <button
+                  type="button"
+                  class="toggle-pass"
+                  data-target="regConfirm"
+                  aria-label="Tampilkan kata sandi"
+                >
+                  <i class="far fa-eye"></i>
+                </button>
+              </div>
+              <span class="hint error" id="confirmError" style="display: none"
+                >Kata sandi tidak cocok.</span
+              >
+            </div>
+
+            <label class="checkbox-row">
+              <input type="checkbox" id="agreeTerms" required />
+              Saya menyetujui
+              <a href="./ketentuanlayanan.html" class="link"
+                >Ketentuan Layanan</a
+              >
+              &amp; Kebijakan Privasi Hidden Web
+            </label>
+
+            <button type="submit" class="submit-btn">
+              <span class="spinner"></span>
+              <span class="btn-label"
+                ><i class="fas fa-user-plus"></i> Buat akun</span
+              >
+            </button>
+
+            <div class="switch-line">
+              Sudah punya akun?
+              <button type="button" id="goLogin">Masuk di sini</button>
+            </div>
+          </form>
+
+          <p class="footer-note">
+            <i class="fas fa-shield-halved"></i> Data kamu dilindungi enkripsi
+            standar industri
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast" id="toast">
+      <i class="fas fa-circle-check"></i><span id="toastText"></span>
+    </div>
+
+    <script>
+      // Subtle particle background — confined to the brand panel only
+      function createParticles() {
+        const container = document.getElementById("particles");
+        if (!container) return;
+        for (let i = 0; i < 22; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+          const size = Math.random() * 3 + 1;
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.left = `${Math.random() * 100}%`;
+          particle.style.top = `${Math.random() * 100}%`;
+          const colors = ["var(--accent)", "var(--purple)", "var(--cyan)"];
+          particle.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+          particle.style.animationDelay = `${Math.random() * 18}s`;
+          particle.style.animationDuration = `${18 + Math.random() * 10}s`;
+          container.appendChild(particle);
+        }
+      }
+      createParticles();
+
+      const tabLogin = document.getElementById("tabLogin");
+      const tabRegister = document.getElementById("tabRegister");
+      const tabIndicator = document.getElementById("tabIndicator");
+      const loginForm = document.getElementById("loginForm");
+      const registerForm = document.getElementById("registerForm");
+      const eyebrow = document.getElementById("eyebrow");
+      const heading = document.getElementById("heading");
+      const subheading = document.getElementById("subheading");
+
+      function showLogin() {
+        tabLogin.classList.add("active");
+        tabRegister.classList.remove("active");
+        tabIndicator.classList.remove("to-register");
+        loginForm.classList.remove("hidden");
+        registerForm.classList.add("hidden");
+        eyebrow.textContent = "SELAMAT DATANG KEMBALI";
+        heading.textContent = "Masuk ke akunmu";
+        subheading.textContent = "Lanjutkan mengelola proyek dan layanan kamu.";
+      }
+
+      function showRegister() {
+        tabRegister.classList.add("active");
+        tabLogin.classList.remove("active");
+        tabIndicator.classList.add("to-register");
+        registerForm.classList.remove("hidden");
+        loginForm.classList.add("hidden");
+        eyebrow.textContent = "MULAI DARI SINI";
+        heading.textContent = "Buat akun baru";
+        subheading.textContent = "Gratis, dan siap dipakai dalam satu menit.";
+      }
+
+      tabLogin.addEventListener("click", showLogin);
+      tabRegister.addEventListener("click", showRegister);
+      document
+        .getElementById("goRegister")
+        .addEventListener("click", showRegister);
+      document.getElementById("goLogin").addEventListener("click", showLogin);
+
+      document.querySelectorAll(".toggle-pass").forEach((btn) => {
+        btn.addEventListener("click", () => {
+          const target = document.getElementById(btn.dataset.target);
+          const isPass = target.type === "password";
+          target.type = isPass ? "text" : "password";
+          btn.innerHTML = isPass
+            ? '<i class="far fa-eye-slash"></i>'
+            : '<i class="far fa-eye"></i>';
+        });
+      });
+
+      function isValidEmail(v) {
+        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
+      }
+
+      const regPassword = document.getElementById("regPassword");
+      const strengthBars = document.querySelectorAll(".strength-bar i");
+      const strengthLabel = document.getElementById("strengthLabel");
+
+      regPassword.addEventListener("input", () => {
+        const v = regPassword.value;
+        let score = 0;
+        if (v.length >= 8) score++;
+        if (/[A-Z]/.test(v)) score++;
+        if (/[0-9]/.test(v)) score++;
+        if (/[^A-Za-z0-9]/.test(v)) score++;
+
+        let color = "var(--line)";
+        let label = "Minimal 8 karakter";
+
+        if (v.length > 0) {
+          if (score <= 1) {
+            color = "var(--danger)";
+            label = "Lemah — tambahkan angka atau simbol";
+          } else if (score === 2) {
+            color = "#ff9f45";
+            label = "Cukup — bisa lebih kuat lagi";
+          } else if (score === 3) {
+            color = "var(--yellow)";
+            label = "Baik";
+          } else {
+            color = "var(--success)";
+            label = "Kuat";
+          }
+        }
+
+        strengthBars.forEach((bar, i) => {
+          bar.style.background =
+            v.length > 0 && i < score ? color : "var(--line)";
+        });
+        strengthLabel.textContent = label;
+        strengthLabel.style.color = v.length > 0 ? color : "var(--muted)";
+      });
+
+      const toast = document.getElementById("toast");
+      const toastText = document.getElementById("toastText");
+      function showToast(msg) {
+        toastText.textContent = msg;
+        toast.classList.add("show");
+        setTimeout(() => toast.classList.remove("show"), 2800);
+      }
+
+      function withLoading(btn, callback) {
+        btn.classList.add("loading");
+        setTimeout(() => {
+          btn.classList.remove("loading");
+          callback();
+        }, 900);
+      }
+
+      loginForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("loginEmail");
+        const emailError = document.getElementById("loginEmailError");
+        let valid = true;
+
+        if (!isValidEmail(email.value)) {
+          emailError.style.display = "block";
+          email.style.borderColor = "var(--danger)";
+          valid = false;
+        } else {
+          emailError.style.display = "none";
+          email.style.borderColor = "var(--line)";
+        }
+
+        if (valid) {
+          withLoading(loginForm.querySelector(".submit-btn"), () => {
+            showToast("Berhasil masuk. Selamat datang kembali!");
+            loginForm.reset();
+          });
+          window.location = "http://localhost:5500/dashboard/dashboard.html";
+        }
+      });
+
+      registerForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const email = document.getElementById("regEmail");
+        const emailError = document.getElementById("regEmailError");
+        const pass = document.getElementById("regPassword");
+        const confirm = document.getElementById("regConfirm");
+        const confirmError = document.getElementById("confirmError");
+        let valid = true;
+
+        if (!isValidEmail(email.value)) {
+          emailError.style.display = "block";
+          email.style.borderColor = "var(--danger)";
+          valid = false;
+        } else {
+          emailError.style.display = "none";
+          email.style.borderColor = "var(--line)";
+        }
+
+        if (pass.value !== confirm.value || confirm.value === "") {
+          confirmError.style.display = "block";
+          confirm.style.borderColor = "var(--danger)";
+          valid = false;
+        } else {
+          confirmError.style.display = "none";
+          confirm.style.borderColor = "var(--line)";
+        }
+
+        if (pass.value.length < 8) {
+          valid = false;
+        }
+
+        if (valid) {
+          withLoading(registerForm.querySelector(".submit-btn"), () => {
+            showToast("Akun berhasil dibuat. Selamat bergabung!");
+            registerForm.reset();
+            strengthBars.forEach(
+              (bar) => (bar.style.background = "var(--line)"),
+            );
+            strengthLabel.textContent = "Minimal 8 karakter";
+            strengthLabel.style.color = "var(--muted)";
+          });
+        }
+      });
+    </script>
+  </body>
+</html>

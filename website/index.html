@@ -1,0 +1,5343 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#000814" />
+    <title>Hidden Web – Bukti Nyata Klien Puas | Website Premium</title>
+    <meta
+      name="description"
+      content="Hidden web - website futuristik dengan testimoni gambar nyata dari klien Indonesia. Kalkulator harga, AI chatbot, rating system, dan semua fitur premium."
+    />
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --bg: #000814;
+        --text: #eaeaea;
+        --accent: #00ffcc;
+        --btn: #0066ff;
+        --glass: rgba(255, 255, 255, 0.08);
+        --muted: #a6a6a6;
+        --success: #00d084;
+        --danger: #ff6b6b;
+        --card-hover: rgba(0, 255, 204, 0.12);
+        --pink: #ff00ff;
+        --purple: #9d4edd;
+        --cyan: #00f5ff;
+        --yellow: #ffcc00;
+        --orange: #ff6b35;
+      }
+
+      /* Light Mode Variables */
+      .light-mode {
+        --bg: #ffffff;
+        --text: #222222;
+        --glass: rgba(0, 0, 0, 0.08);
+        --muted: #666666;
+        --card-hover: rgba(0, 255, 204, 0.08);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+      }
+
+      /* Background Premium */
+      .bg-gradient {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(0, 255, 204, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(157, 78, 221, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 40%,
+            rgba(255, 0, 255, 0.05) 0%,
+            transparent 50%
+          ),
+          linear-gradient(135deg, #000814 0%, #001d3d 50%, #000814 100%);
+        z-index: -2;
+      }
+
+      .light-mode .bg-gradient {
+        background:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(0, 255, 204, 0.05) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(157, 78, 221, 0.05) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 40%,
+            rgba(255, 0, 255, 0.02) 0%,
+            transparent 50%
+          ),
+          linear-gradient(135deg, #ffffff 0%, #f5f7fa 50%, #ffffff 100%);
+      }
+
+      .bg-particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .particle {
+        position: absolute;
+        background: var(--accent);
+        border-radius: 50%;
+        animation: float 15s infinite linear;
+        opacity: 0.6;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+
+        10% {
+          opacity: 0.7;
+        }
+
+        90% {
+          opacity: 0.7;
+        }
+
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Header */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 8, 20, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 15px 30px;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s;
+      }
+
+      .light-mode header {
+        background: rgba(255, 255, 255, 0.95);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1.5rem;
+        font-weight: 800;
+        background: linear-gradient(90deg, var(--accent), var(--purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, var(--accent), var(--purple));
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+      }
+
+      nav {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .nav-link {
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        padding: 5px 0;
+        transition: color 0.3s;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .nav-link:hover {
+        color: var(--accent);
+      }
+
+      /* ==================== MEGA DROPDOWN MENU (ala Asana) ==================== */
+      .nav-item-dropdown {
+        position: relative;
+      }
+
+      .nav-dropdown-trigger {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        background: none;
+        border: none;
+        color: var(--text);
+        font-family: inherit;
+        font-weight: 500;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 9px 16px;
+        border-radius: 30px;
+        transition: all 0.25s;
+      }
+
+      .nav-dropdown-trigger:hover {
+        background: rgba(255, 255, 255, 0.08);
+      }
+
+      .light-mode .nav-dropdown-trigger:hover {
+        background: rgba(0, 0, 0, 0.06);
+      }
+
+      .nav-dropdown-trigger i {
+        font-size: 0.7rem;
+        transition: transform 0.25s;
+        color: var(--muted);
+      }
+
+      .nav-item-dropdown.open .nav-dropdown-trigger {
+        background: rgba(255, 255, 255, 0.1);
+        color: var(--text);
+      }
+
+      .light-mode .nav-item-dropdown.open .nav-dropdown-trigger {
+        background: rgba(0, 0, 0, 0.08);
+      }
+
+      .nav-item-dropdown.open .nav-dropdown-trigger i {
+        transform: rotate(180deg);
+        color: var(--accent);
+      }
+
+      .dropdown-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 8, 20, 0.55);
+        backdrop-filter: blur(3px);
+        z-index: 998;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+
+      .light-mode .dropdown-overlay {
+        background: rgba(20, 20, 30, 0.35);
+      }
+
+      .dropdown-overlay.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .mega-dropdown {
+        position: fixed;
+        top: 78px;
+        left: 50%;
+        transform: translateX(-50%) translateY(-12px);
+        width: min(1180px, 94vw);
+        background: rgba(8, 16, 32, 0.98);
+        backdrop-filter: blur(20px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transition:
+          opacity 0.25s ease,
+          transform 0.25s ease,
+          visibility 0.25s;
+        overflow: hidden;
+      }
+
+      .light-mode .mega-dropdown {
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .nav-item-dropdown.open .mega-dropdown {
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateX(-50%) translateY(0);
+      }
+
+      .mega-dropdown-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr 1fr 0.8fr;
+        gap: 10px;
+        padding: 35px 40px 25px;
+      }
+
+      .mega-col-title {
+        font-size: 0.72rem;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--muted);
+        margin-bottom: 18px;
+      }
+
+      .mega-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 14px;
+        padding: 10px 12px;
+        margin: 0 -12px 4px;
+        border-radius: 12px;
+        text-decoration: none;
+        color: var(--text);
+        transition: background-color 0.2s;
+      }
+
+      .mega-item:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .light-mode .mega-item:hover {
+        background: rgba(0, 0, 0, 0.04);
+      }
+
+      .mega-icon {
+        flex-shrink: 0;
+        width: 34px;
+        height: 34px;
+        border-radius: 9px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.95rem;
+        margin-top: 2px;
+      }
+
+      .mega-icon.pink {
+        background: rgba(255, 0, 255, 0.15);
+        color: var(--pink);
+      }
+      .mega-icon.green {
+        background: rgba(0, 208, 132, 0.15);
+        color: var(--success);
+      }
+      .mega-icon.yellow {
+        background: rgba(255, 204, 0, 0.15);
+        color: var(--yellow);
+      }
+      .mega-icon.blue {
+        background: rgba(0, 102, 255, 0.15);
+        color: #66a3ff;
+      }
+      .mega-icon.purple {
+        background: rgba(157, 78, 221, 0.15);
+        color: var(--purple);
+      }
+      .mega-icon.cyan {
+        background: rgba(0, 245, 255, 0.15);
+        color: var(--cyan);
+      }
+      .mega-icon.orange {
+        background: rgba(255, 107, 53, 0.15);
+        color: var(--orange);
+      }
+
+      .mega-item-text {
+        display: flex;
+        flex-direction: column;
+        gap: 3px;
+        min-width: 0;
+      }
+
+      .mega-item-title {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-weight: 700;
+        font-size: 0.95rem;
+      }
+
+      .mega-item-desc {
+        font-size: 0.82rem;
+        color: var(--muted);
+        line-height: 1.4;
+      }
+
+      .mega-badge {
+        font-size: 0.65rem;
+        font-weight: 700;
+        color: var(--btn);
+        background: rgba(0, 102, 255, 0.12);
+        padding: 3px 8px;
+        border-radius: 6px;
+        white-space: nowrap;
+      }
+
+      .mega-links-list {
+        display: flex;
+        flex-direction: column;
+        gap: 2px;
+      }
+
+      .mega-simple-link {
+        padding: 9px 12px;
+        margin: 0 -12px;
+        border-radius: 10px;
+        text-decoration: none;
+        color: var(--text);
+        font-weight: 600;
+        font-size: 0.93rem;
+        transition: background-color 0.2s;
+      }
+
+      .mega-simple-link:hover {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--accent);
+      }
+
+      .light-mode .mega-simple-link:hover {
+        background: rgba(0, 0, 0, 0.04);
+      }
+
+      .mega-dropdown-footer {
+        display: flex;
+        align-items: center;
+        gap: 35px;
+        padding: 18px 40px;
+        background: rgba(255, 255, 255, 0.03);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .light-mode .mega-dropdown-footer {
+        background: rgba(0, 0, 0, 0.02);
+        border-top: 1px solid rgba(0, 0, 0, 0.06);
+      }
+
+      .mega-footer-link {
+        display: flex;
+        align-items: center;
+        gap: 9px;
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: color 0.25s;
+      }
+
+      .mega-footer-link i {
+        color: var(--muted);
+        font-size: 0.95rem;
+        transition: color 0.25s;
+      }
+
+      .mega-footer-link:hover {
+        color: var(--accent);
+      }
+
+      .mega-footer-link:hover i {
+        color: var(--accent);
+      }
+
+      @media (max-width: 900px) {
+        .mega-dropdown {
+          left: 20px;
+          right: 20px;
+          width: auto;
+          transform: translateY(-12px);
+          top: 74px;
+        }
+
+        .nav-item-dropdown.open .mega-dropdown {
+          transform: translateY(0);
+        }
+
+        .mega-dropdown-grid {
+          grid-template-columns: 1fr;
+          padding: 25px 22px 10px;
+        }
+
+        .mega-dropdown-footer {
+          flex-wrap: wrap;
+          gap: 18px;
+          padding: 16px 22px;
+        }
+      }
+
+      /* ==================== HAMBURGER MENU (MOBILE) ==================== */
+      .header-actions {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .hamburger-btn {
+        display: none;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 5px;
+        width: 42px;
+        height: 42px;
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.12);
+        border-radius: 10px;
+        cursor: pointer;
+        flex-shrink: 0;
+        z-index: 1201;
+        position: relative;
+      }
+
+      .light-mode .hamburger-btn {
+        background: rgba(0, 0, 0, 0.04);
+        border: 1px solid rgba(0, 0, 0, 0.12);
+      }
+
+      .hamburger-btn span {
+        display: block;
+        width: 20px;
+        height: 2px;
+        background: var(--text);
+        border-radius: 2px;
+        transition: all 0.3s ease;
+      }
+
+      .hamburger-btn.open span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+
+      .hamburger-btn.open span:nth-child(2) {
+        opacity: 0;
+      }
+
+      .hamburger-btn.open span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+
+      .mobile-menu-overlay {
+        position: fixed;
+        inset: 0;
+        background: rgba(0, 8, 20, 0.6);
+        backdrop-filter: blur(4px);
+        z-index: 1199;
+        opacity: 0;
+        visibility: hidden;
+        transition:
+          opacity 0.3s ease,
+          visibility 0.3s ease;
+      }
+
+      .mobile-menu-overlay.show {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      .mobile-menu {
+        position: fixed;
+        top: 0;
+        right: 0;
+        width: min(340px, 85vw);
+        height: 100%;
+        height: 100dvh;
+        background: rgba(3, 10, 24, 0.98);
+        backdrop-filter: blur(20px);
+        border-left: 1px solid rgba(255, 255, 255, 0.1);
+        box-shadow: -20px 0 50px rgba(0, 0, 0, 0.5);
+        z-index: 1200;
+        transform: translateX(100%);
+        transition: transform 0.35s ease;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      .light-mode .mobile-menu {
+        background: rgba(255, 255, 255, 0.98);
+        border-left: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+
+      .mobile-menu-header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 18px 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        flex-shrink: 0;
+      }
+
+      .light-mode .mobile-menu-header {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .mobile-menu-close {
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.06);
+        border: none;
+        color: var(--text);
+        font-size: 1rem;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.25s;
+      }
+
+      .mobile-menu-close:hover {
+        background: rgba(255, 255, 255, 0.14);
+      }
+
+      .mobile-menu-body {
+        flex: 1;
+        overflow-y: auto;
+        padding: 10px 14px 30px;
+      }
+
+      .mobile-nav-link {
+        display: block;
+        padding: 15px 12px;
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 1.02rem;
+        border-radius: 12px;
+        transition: background-color 0.2s;
+      }
+
+      .mobile-nav-link:hover,
+      .mobile-nav-link:active {
+        background: rgba(255, 255, 255, 0.06);
+        color: var(--accent);
+      }
+
+      .mobile-accordion-trigger {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 12px;
+        background: none;
+        border: none;
+        color: var(--text);
+        font-family: inherit;
+        font-weight: 600;
+        font-size: 1.02rem;
+        cursor: pointer;
+        border-radius: 12px;
+      }
+
+      .mobile-accordion-trigger:hover {
+        background: rgba(255, 255, 255, 0.06);
+      }
+
+      .mobile-accordion-trigger i {
+        color: var(--muted);
+        transition: transform 0.3s;
+        font-size: 0.85rem;
+      }
+
+      .mobile-accordion.open .mobile-accordion-trigger i {
+        transform: rotate(180deg);
+        color: var(--accent);
+      }
+
+      .mobile-accordion-content {
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+      }
+
+      .mobile-accordion.open .mobile-accordion-content {
+        max-height: 600px;
+      }
+
+      .mobile-sub-link {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        padding: 12px 12px 12px 14px;
+        margin-left: 8px;
+        border-left: 2px solid rgba(255, 255, 255, 0.1);
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.92rem;
+        font-weight: 500;
+        transition: all 0.2s;
+      }
+
+      .mobile-sub-link:hover {
+        color: var(--accent);
+        border-left-color: var(--accent);
+      }
+
+      .mobile-sub-link i {
+        width: 16px;
+        text-align: center;
+        color: var(--accent);
+      }
+
+      .mobile-menu-divider {
+        height: 1px;
+        background: rgba(255, 255, 255, 0.08);
+        margin: 14px 4px;
+      }
+
+      .light-mode .mobile-menu-divider {
+        background: rgba(0, 0, 0, 0.08);
+      }
+
+      .mobile-menu-actions {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        padding: 6px 4px 0;
+      }
+
+      .mobile-menu-actions .btn {
+        width: 100%;
+        justify-content: center;
+      }
+
+      .mobile-theme-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 15px 12px;
+        border-radius: 12px;
+        font-weight: 600;
+        font-size: 1.02rem;
+      }
+
+      .mobile-theme-row #theme-toggle-mobile {
+        background: rgba(255, 255, 255, 0.08);
+        border: none;
+        width: 38px;
+        height: 38px;
+        border-radius: 50%;
+        color: var(--text);
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media (max-width: 768px) {
+        nav {
+          display: none;
+        }
+
+        .header-actions .btn,
+        .header-actions #theme-toggle {
+          display: none;
+        }
+
+        .hamburger-btn {
+          display: flex;
+        }
+      }
+
+      /* Theme Toggle Button */
+      #theme-toggle {
+        background: none;
+        border: none;
+        color: var(--text);
+        font-size: 1.2rem;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s;
+      }
+
+      #theme-toggle:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 25px;
+        background: linear-gradient(135deg, var(--btn), var(--purple));
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.6s;
+      }
+
+      .btn:hover::before {
+        left: 100%;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 102, 255, 0.3);
+      }
+
+      .btn-secondary {
+        background: transparent;
+        border: 2px solid var(--accent);
+        color: var(--accent);
+      }
+
+      .btn-secondary:hover {
+        background: var(--accent);
+        color: #000;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 120px 20px 60px;
+        text-align: center;
+        position: relative;
+      }
+
+      .hero-content {
+        max-width: 1200px;
+        position: relative;
+        z-index: 2;
+      }
+
+      .hero-title {
+        font-size: clamp(2.8rem, 6vw, 4.5rem);
+        line-height: 1.1;
+        margin-bottom: 25px;
+        background: linear-gradient(
+          90deg,
+          var(--accent),
+          var(--purple),
+          var(--cyan)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .hero-subtitle {
+        font-size: 1.3rem;
+        color: var(--muted);
+        margin-bottom: 40px;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+      }
+
+      /* Sections */
+      section {
+        padding: 100px 20px;
+        position: relative;
+      }
+
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      .section-title {
+        font-size: clamp(2rem, 4vw, 3.2rem);
+        text-align: center;
+        margin-bottom: 15px;
+        background: linear-gradient(90deg, var(--accent), var(--purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .section-subtitle {
+        text-align: center;
+        color: var(--muted);
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto 60px;
+      }
+
+      /* TESTIMONI GAMBAR NYATA SECTION */
+      #testimony {
+        background: rgba(0, 255, 204, 0.02);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .testimony-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .testimony-photo-card {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        overflow: hidden;
+        transition: all 0.4s;
+        position: relative;
+      }
+
+      .light-mode .testimony-photo-card {
+        background: rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .testimony-photo-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--accent);
+        box-shadow: 0 20px 40px rgba(0, 255, 204, 0.1);
+      }
+
+      .testimony-photo {
+        width: 100%;
+        height: 300px;
+        object-fit: cover;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .testimony-photo-info {
+        padding: 25px;
+      }
+
+      .testimony-rating {
+        color: var(--yellow);
+        font-size: 1.2rem;
+        margin-bottom: 15px;
+      }
+
+      .testimony-text {
+        font-size: 1.1rem;
+        line-height: 1.6;
+        margin-bottom: 20px;
+        color: var(--text);
+        font-style: italic;
+      }
+
+      .testimony-author {
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .author-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 2px solid var(--accent);
+      }
+
+      .author-info h4 {
+        font-size: 1.1rem;
+        margin-bottom: 5px;
+        color: var(--accent);
+      }
+
+      .author-info p {
+        color: var(--muted);
+        font-size: 0.9rem;
+      }
+
+      /* Video Testimoni */
+      .testimony-video-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .video-testimony-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 20px;
+        overflow: hidden;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.4s;
+      }
+
+      .light-mode .video-testimony-card {
+        background: rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .video-testimony-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--accent);
+      }
+
+      .video-container {
+        position: relative;
+        width: 100%;
+        height: 250px;
+        background: #000;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .video-placeholder {
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 255, 204, 0.1),
+          rgba(157, 78, 221, 0.1)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        color: var(--accent);
+        font-size: 3rem;
+      }
+
+      .play-button {
+        width: 80px;
+        height: 80px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        border: 2px solid var(--accent);
+      }
+
+      .play-button:hover {
+        background: var(--accent);
+        color: #000;
+        transform: scale(1.1);
+      }
+
+      /* HARGA SECTION */
+      #harga {
+        background: rgba(157, 78, 221, 0.03);
+        position: relative;
+      }
+
+      .harga-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 30px;
+        margin-top: 50px;
+      }
+
+      .harga-card {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 40px;
+        position: relative;
+        transition: all 0.4s;
+      }
+
+      .light-mode .harga-card {
+        background: rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .harga-card:hover {
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.08);
+        border-color: var(--accent);
+      }
+
+      .light-mode .harga-card:hover {
+        background: rgba(0, 0, 0, 0.06);
+      }
+
+      .harga-card.popular {
+        border: 2px solid var(--accent);
+        background: rgba(0, 255, 204, 0.05);
+        transform: scale(1.05);
+      }
+
+      .light-mode .harga-card.popular {
+        background: rgba(0, 255, 204, 0.08);
+      }
+
+      .harga-card.popular::before {
+        content: "POPULAR";
+        position: absolute;
+        top: 20px;
+        right: -30px;
+        background: var(--accent);
+        color: #000;
+        padding: 8px 35px;
+        font-size: 12px;
+        font-weight: bold;
+        transform: rotate(45deg);
+      }
+
+      .harga {
+        font-size: 3rem;
+        font-weight: 800;
+        margin: 20px 0;
+        background: linear-gradient(90deg, var(--accent), var(--purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .harga-note {
+        color: var(--muted);
+        font-size: 0.9rem;
+        margin-bottom: 20px;
+      }
+
+      .fitur-list {
+        margin: 25px 0;
+        padding-left: 0;
+      }
+
+      .fitur-list li {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 12px 0;
+        list-style: none;
+        font-size: 0.95rem;
+      }
+
+      .fitur-icon {
+        width: 24px;
+        height: 24px;
+        background: rgba(0, 255, 204, 0.1);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: var(--accent);
+        font-size: 12px;
+        flex-shrink: 0;
+      }
+
+      /* WhatsApp Button */
+      .whatsapp-btn {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        width: 60px;
+        height: 60px;
+        background: #25d366;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        text-decoration: none;
+        z-index: 1000;
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+        transition: all 0.3s;
+      }
+
+      .whatsapp-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+      }
+
+      /* Animasi */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+          opacity 0.8s ease,
+          transform 0.8s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Stats */
+      .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 25px;
+        margin: 50px 0;
+      }
+
+      .stat-card {
+        text-align: center;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s;
+      }
+
+      .light-mode .stat-card {
+        background: rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .stat-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-5px);
+      }
+
+      .stat-number {
+        font-size: 3.5rem;
+        font-weight: 800;
+        background: linear-gradient(90deg, var(--accent), var(--purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        line-height: 1;
+        margin-bottom: 10px;
+        transition: all 0.3s;
+      }
+
+      /* ========== FITUR BARU YANG DITAMBAHKAN ========== */
+
+      /* 1. AI Chat Widget */
+      #chat-widget {
+        position: fixed;
+        bottom: 180px;
+        right: 30px;
+        width: 380px;
+        max-height: 500px;
+        background: rgba(0, 8, 20, 0.98);
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--accent);
+        border-radius: 20px;
+        box-shadow: 0 10px 40px rgba(0, 255, 204, 0.2);
+        display: none;
+        flex-direction: column;
+        z-index: 1002;
+        overflow: hidden;
+      }
+
+      .light-mode #chat-widget {
+        background: rgba(255, 255, 255, 0.98);
+        border: 1px solid var(--accent);
+      }
+
+      .chat-header {
+        padding: 20px;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: rgba(0, 255, 204, 0.1);
+      }
+
+      .light-mode .chat-header {
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      #chat-messages {
+        flex: 1;
+        overflow-y: auto;
+        padding: 20px;
+        max-height: 350px;
+      }
+
+      .bot-msg,
+      .user-msg {
+        margin: 10px 0;
+        max-width: 85%;
+        padding: 12px 16px;
+        border-radius: 18px;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .bot-msg {
+        background: rgba(0, 255, 204, 0.1);
+        border: 1px solid rgba(0, 255, 204, 0.3);
+        margin-right: auto;
+      }
+
+      .user-msg {
+        background: rgba(0, 102, 255, 0.1);
+        border: 1px solid rgba(0, 102, 255, 0.3);
+        margin-left: auto;
+        text-align: right;
+      }
+
+      /* 2. Kalkulator Harga Interaktif */
+      .harga-calculator {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 255, 204, 0.05),
+          rgba(157, 78, 221, 0.05)
+        );
+        border-radius: 20px;
+        padding: 40px;
+        margin: 50px 0;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .light-mode .harga-calculator {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 255, 204, 0.03),
+          rgba(157, 78, 221, 0.03)
+        );
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .calculator-controls {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 25px;
+        margin: 30px 0;
+      }
+
+      .calc-input {
+        width: 100%;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        border-radius: 10px;
+        color: var(--text);
+        font-size: 1rem;
+      }
+
+      .light-mode .calc-input {
+        background: rgba(0, 0, 0, 0.05);
+        border: 1px solid rgba(0, 0, 0, 0.2);
+      }
+
+      .calc-input:focus {
+        outline: none;
+        border-color: var(--accent);
+      }
+
+      .feature-checkbox {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin: 10px 0;
+        padding: 12px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 10px;
+        transition: all 0.3s;
+      }
+
+      .light-mode .feature-checkbox {
+        background: rgba(0, 0, 0, 0.03);
+      }
+
+      .feature-checkbox:hover {
+        background: rgba(0, 255, 204, 0.1);
+      }
+
+      /* 3. Live Rating System */
+      .live-rating {
+        background: rgba(255, 255, 255, 0.03);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: 40px;
+        border-radius: 20px;
+        margin: 40px 0;
+      }
+
+      .light-mode .live-rating {
+        background: rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .star-rating {
+        display: inline-flex;
+        direction: row;
+        font-size: 2rem;
+      }
+
+      .star-rating span {
+        cursor: pointer;
+        color: #666;
+        transition: color 0.3s;
+        margin: 0 2px;
+      }
+
+      .star-rating span:hover,
+      .star-rating span:hover ~ span {
+        color: var(--yellow);
+      }
+
+      .star-rating .active {
+        color: var(--yellow);
+      }
+
+      .rating-bar {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+      }
+
+      .rating-bar-label {
+        width: 60px;
+        font-size: 0.9rem;
+      }
+
+      .rating-bar-bg {
+        flex: 1;
+        height: 10px;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 5px;
+        overflow: hidden;
+        margin: 0 15px;
+      }
+
+      .light-mode .rating-bar-bg {
+        background: rgba(0, 0, 0, 0.1);
+      }
+
+      .rating-bar-fill {
+        height: 100%;
+        background: var(--yellow);
+        border-radius: 5px;
+        transition: width 1s ease;
+      }
+
+      /* 4. Countdown Timer Promo */
+      .promo-timer {
+        background: linear-gradient(135deg, #ff0080, #9d4edd);
+        border-radius: 20px;
+        padding: 30px;
+        margin: 40px 0;
+        text-align: center;
+        border: 2px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .countdown-box {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        margin: 25px 0;
+      }
+
+      .countdown-unit {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 20px;
+        border-radius: 15px;
+        min-width: 80px;
+      }
+
+      .countdown-value {
+        font-size: 2.5rem;
+        font-weight: 800;
+        margin-bottom: 5px;
+      }
+
+      .countdown-label {
+        font-size: 0.9rem;
+        opacity: 0.9;
+      }
+
+      /* 5. Portfolio Slider */
+      .portfolio-slider {
+        margin: 50px 0;
+        position: relative;
+      }
+
+      .slides-container {
+        display: flex;
+        overflow: hidden;
+        border-radius: 20px;
+        height: 500px;
+        transition: transform 0.5s ease;
+      }
+
+      .portfolio-slide {
+        min-width: 100%;
+        height: 100%;
+        padding: 60px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .slide-badge {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        background: var(--accent);
+        color: #000;
+        padding: 8px 20px;
+        border-radius: 20px;
+        font-weight: bold;
+        font-size: 0.9rem;
+      }
+
+      .slide-dots {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        margin-top: 20px;
+      }
+
+      .slide-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.3);
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .slide-dot.active {
+        background: var(--accent);
+        transform: scale(1.2);
+      }
+
+      /* 6. Progress Circle */
+      .progress-circle-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 30px;
+        margin: 40px 0;
+      }
+
+      .progress-circle-wrapper {
+        text-align: center;
+      }
+
+      .progress-circle-svg {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 15px;
+        transform: rotate(-90deg);
+      }
+
+      .progress-circle-bg {
+        fill: none;
+        stroke: rgba(255, 255, 255, 0.1);
+        stroke-width: 8;
+      }
+
+      .progress-circle-fill {
+        fill: none;
+        stroke: var(--accent);
+        stroke-width: 8;
+        stroke-linecap: round;
+        stroke-dasharray: 283;
+        stroke-dashoffset: 283;
+        transition: stroke-dashoffset 2s ease;
+      }
+
+      .progress-circle-text {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--text);
+      }
+
+      /* 7. Integration Badges */
+      .integration-badges {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 40px 0;
+      }
+
+      .badge {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 20px;
+        text-align: center;
+        min-width: 140px;
+        transition: all 0.3s;
+      }
+
+      .light-mode .badge {
+        background: rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .badge:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent);
+        box-shadow: 0 10px 20px rgba(0, 255, 204, 0.1);
+      }
+
+      .badge-icon {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+      }
+
+      /* 8. Social Proof Notification */
+      #social-proof {
+        position: fixed;
+        bottom: 100px;
+        left: 30px;
+        background: rgba(0, 8, 20, 0.95);
+        backdrop-filter: blur(10px);
+        border: 1px solid var(--accent);
+        border-radius: 15px;
+        padding: 20px;
+        max-width: 320px;
+        display: none;
+        z-index: 999;
+        animation: slideInLeft 0.5s ease;
+      }
+
+      @keyframes slideInLeft {
+        from {
+          transform: translateX(-100%);
+          opacity: 0;
+        }
+
+        to {
+          transform: translateX(0);
+          opacity: 1;
+        }
+      }
+
+      /* 9. Exit Popup */
+      #exit-popup {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 8, 20, 0.98);
+        z-index: 2000;
+        align-items: center;
+        justify-content: center;
+        animation: fadeIn 0.3s ease;
+      }
+
+      .popup-content {
+        background: linear-gradient(135deg, #000814, #001d3d);
+        padding: 50px;
+        border-radius: 25px;
+        max-width: 500px;
+        width: 90%;
+        border: 2px solid var(--accent);
+        text-align: center;
+        position: relative;
+        box-shadow: 0 20px 60px rgba(0, 255, 204, 0.2);
+      }
+
+      /* 10. Download Media Kit */
+      .media-kit {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 255, 204, 0.05),
+          rgba(157, 78, 221, 0.05)
+        );
+        border-radius: 20px;
+        padding: 50px;
+        margin: 60px 0;
+        text-align: center;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .media-kit-cards {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 30px;
+        margin-top: 40px;
+      }
+
+      .media-kit-card {
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 15px;
+        padding: 30px;
+        width: 250px;
+        transition: all 0.3s;
+      }
+
+      .media-kit-card:hover {
+        transform: translateY(-10px);
+        border-color: var(--accent);
+      }
+
+      /* 11. FAQ Accordion */
+      .faq-container {
+        max-width: 800px;
+        margin: 50px auto;
+      }
+
+      .faq-item {
+        margin-bottom: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+
+      .light-mode .faq-item {
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .faq-question {
+        width: 100%;
+        padding: 25px;
+        background: rgba(255, 255, 255, 0.03);
+        border: none;
+        text-align: left;
+        color: var(--text);
+        font-size: 1.1rem;
+        font-weight: 600;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .light-mode .faq-question {
+        background: rgba(0, 0, 0, 0.03);
+      }
+
+      .faq-question:hover {
+        background: rgba(0, 255, 204, 0.1);
+      }
+
+      .faq-icon {
+        font-size: 1.5rem;
+        transition: transform 0.3s;
+      }
+
+      .faq-answer {
+        padding: 0 25px;
+        max-height: 0;
+        overflow: hidden;
+        transition: all 0.3s;
+      }
+
+      .faq-item.active .faq-answer {
+        padding: 25px;
+        max-height: 500px;
+      }
+
+      .faq-item.active .faq-icon {
+        transform: rotate(45deg);
+      }
+
+      /* 12. Technology Stack */
+      .tech-stack {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin: 50px 0;
+      }
+
+      .tech-item {
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 15px;
+        padding: 20px 30px;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+        transition: all 0.3s;
+        position: relative;
+        cursor: help;
+      }
+
+      .light-mode .tech-item {
+        background: rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .tech-item:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent);
+      }
+
+      .tech-item .tooltip {
+        position: absolute;
+        bottom: 100%;
+        left: 50%;
+        transform: translateX(-50%);
+        background: var(--accent);
+        color: #000;
+        padding: 8px 15px;
+        border-radius: 8px;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s;
+        margin-bottom: 10px;
+      }
+
+      .tech-item:hover .tooltip {
+        opacity: 1;
+        visibility: visible;
+      }
+
+      /* 13. Client Onboarding Timeline */
+      .timeline {
+        max-width: 900px;
+        margin: 60px auto;
+        position: relative;
+      }
+
+      .timeline::before {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 0;
+        bottom: 0;
+        width: 2px;
+        background: var(--accent);
+        transform: translateX(-50%);
+      }
+
+      .timeline-step {
+        display: flex;
+        align-items: center;
+        margin-bottom: 60px;
+        position: relative;
+      }
+
+      .timeline-step:nth-child(odd) {
+        flex-direction: row;
+      }
+
+      .timeline-step:nth-child(even) {
+        flex-direction: row-reverse;
+      }
+
+      .step-content {
+        flex: 1;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        margin: 0 30px;
+      }
+
+      .step-number {
+        width: 60px;
+        height: 60px;
+        background: var(--accent);
+        color: #000;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        z-index: 2;
+        flex-shrink: 0;
+      }
+
+      /* 14. Performance Score */
+      .performance-score {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 30px;
+        margin: 50px 0;
+      }
+
+      .score-item {
+        text-align: center;
+        padding: 30px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 15px;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        transition: all 0.3s;
+      }
+
+      .score-item:hover {
+        transform: translateY(-5px);
+        border-color: var(--accent);
+      }
+
+      .score-circle {
+        width: 120px;
+        height: 120px;
+        margin: 0 auto 20px;
+        position: relative;
+      }
+
+      /* 15. Payment Plan Calculator */
+      .payment-calculator {
+        background: linear-gradient(
+          135deg,
+          rgba(0, 102, 255, 0.05),
+          rgba(157, 78, 221, 0.05)
+        );
+        border-radius: 20px;
+        padding: 40px;
+        margin: 50px 0;
+        border: 1px solid rgba(255, 255, 255, 0.1);
+      }
+
+      .payment-options {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin: 30px 0;
+      }
+
+      .payment-option {
+        padding: 25px;
+        background: rgba(255, 255, 255, 0.03);
+        border-radius: 15px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.3s;
+        border: 2px solid transparent;
+      }
+
+      .payment-option:hover {
+        background: rgba(0, 255, 204, 0.1);
+      }
+
+      .payment-option.selected {
+        border-color: var(--accent);
+        background: rgba(0, 255, 204, 0.1);
+      }
+
+      /* 16. Demo Website Preview */
+      .demo-container {
+        border-radius: 20px;
+        overflow: hidden;
+        margin: 50px 0;
+        border: 2px solid rgba(255, 255, 255, 0.1);
+        position: relative;
+      }
+
+      .demo-header {
+        background: rgba(0, 0, 0, 0.3);
+        padding: 15px;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .demo-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+      }
+
+      .demo-dot.red {
+        background: #ff5f57;
+      }
+
+      .demo-dot.yellow {
+        background: #ffbd2e;
+      }
+
+      .demo-dot.green {
+        background: #28ca42;
+      }
+
+      .demo-frame {
+        width: 100%;
+        height: 500px;
+        border: none;
+        background: white;
+      }
+
+      /* Responsive */
+      @media (max-width: 1024px) {
+        .harga-card.popular {
+          transform: none;
+        }
+
+        .timeline::before {
+          left: 30px;
+        }
+
+        .timeline-step {
+          flex-direction: row !important;
+          align-items: flex-start;
+        }
+
+        .step-content {
+          margin-left: 80px;
+          margin-right: 0;
+        }
+
+        .step-number {
+          position: absolute;
+          left: 0;
+        }
+      }
+
+      @media (max-width: 768px) {
+        header {
+          padding: 15px 20px;
+        }
+
+        .hero {
+          padding: 100px 20px 40px;
+        }
+
+        .hero-title {
+          font-size: 2.5rem;
+        }
+
+        .testimony-gallery,
+        .testimony-video-grid,
+        .harga-container {
+          grid-template-columns: 1fr;
+        }
+
+        .harga-card.popular::before {
+          right: -25px;
+          padding: 6px 30px;
+          font-size: 10px;
+        }
+
+        #chat-widget {
+          width: 90%;
+          right: 5%;
+          bottom: 80px;
+        }
+
+        .slides-container {
+          height: 400px;
+        }
+
+        .portfolio-slide {
+          padding: 30px;
+        }
+
+        .countdown-box {
+          gap: 10px;
+        }
+
+        .countdown-unit {
+          min-width: 70px;
+          padding: 15px;
+        }
+
+        .media-kit-cards {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .media-kit-card {
+          width: 100%;
+          max-width: 300px;
+        }
+
+        .tech-stack {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .tech-item {
+          width: 100%;
+          max-width: 300px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        .hero-title {
+          font-size: 2.2rem;
+        }
+
+        .hero-subtitle {
+          font-size: 1.1rem;
+        }
+
+        .section-title {
+          font-size: 2rem;
+        }
+
+        .stats-grid {
+          grid-template-columns: repeat(2, 1fr);
+          gap: 15px;
+        }
+
+        .stat-card {
+          padding: 20px;
+        }
+
+        .stat-number {
+          font-size: 2.5rem;
+        }
+
+        .testimony-gallery,
+        .testimony-video-grid,
+        .harga-container {
+          grid-template-columns: 1fr;
+        }
+
+        .promo-timer {
+          padding: 20px;
+        }
+
+        .countdown-box {
+          gap: 5px;
+        }
+
+        .countdown-unit {
+          min-width: 60px;
+          padding: 10px;
+        }
+
+        .countdown-value {
+          font-size: 1.8rem;
+        }
+
+        .harga-calculator,
+        .media-kit,
+        .payment-calculator {
+          padding: 20px;
+        }
+
+        .faq-question {
+          padding: 20px;
+          font-size: 1rem;
+        }
+
+        .popup-content {
+          padding: 30px 20px;
+        }
+
+        .slides-container {
+          height: 300px;
+        }
+
+        .portfolio-slide {
+          padding: 20px;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- Background Elements -->
+    <div class="bg-gradient"></div>
+    <div class="bg-particles" id="particles"></div>
+
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <div class="logo-icon">HW</div>
+        <span>Hidden Web</span>
+      </div>
+
+      <nav>
+        <a href="#home" class="nav-link">Beranda</a>
+
+        <div class="nav-item-dropdown" id="products-dropdown">
+          <button class="nav-dropdown-trigger" id="products-trigger">
+            Layanan <i class="fas fa-chevron-down"></i>
+          </button>
+
+          <div class="mega-dropdown">
+            <div class="mega-dropdown-grid">
+              <!-- Kolom 1: Paket Website -->
+              <div>
+                <div class="mega-col-title">Paket Website</div>
+
+                <a href="#harga" class="mega-item">
+                  <div class="mega-icon pink">
+                    <i class="fas fa-rocket"></i>
+                  </div>
+                  <div class="mega-item-text">
+                    <div class="mega-item-title">Landing Page</div>
+                    <div class="mega-item-desc">
+                      Untuk promosi produk & campaign singkat
+                    </div>
+                  </div>
+                </a>
+
+                <a href="#harga" class="mega-item">
+                  <div class="mega-icon green">
+                    <i class="fas fa-building"></i>
+                  </div>
+                  <div class="mega-item-text">
+                    <div class="mega-item-title">
+                      Company Profile
+                      <span class="mega-badge">Populer</span>
+                    </div>
+                    <div class="mega-item-desc">
+                      Untuk membangun kredibilitas bisnis
+                    </div>
+                  </div>
+                </a>
+
+                <a href="#harga" class="mega-item">
+                  <div class="mega-icon yellow">
+                    <i class="fas fa-cart-shopping"></i>
+                  </div>
+                  <div class="mega-item-text">
+                    <div class="mega-item-title">Toko Online</div>
+                    <div class="mega-item-desc">
+                      Untuk jualan produk & terima pembayaran
+                    </div>
+                  </div>
+                </a>
+
+                <a href="#harga" class="mega-item">
+                  <div class="mega-icon blue">
+                    <i class="fas fa-layer-group"></i>
+                  </div>
+                  <div class="mega-item-text">
+                    <div class="mega-item-title">Custom Web App</div>
+                    <div class="mega-item-desc">
+                      Sistem & aplikasi web sesuai kebutuhan
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Kolom 2: Fitur Tambahan -->
+              <div>
+                <div class="mega-col-title">Fitur Tambahan</div>
+
+                <a href="#fitur" class="mega-item">
+                  <div class="mega-icon purple">
+                    <i class="fas fa-robot"></i>
+                  </div>
+                  <div class="mega-item-text">
+                    <div class="mega-item-title">AI Chatbot</div>
+                    <div class="mega-item-desc">
+                      Asisten otomatis untuk layani pengunjung
+                    </div>
+                  </div>
+                </a>
+
+                <a href="#fitur" class="mega-item">
+                  <div class="mega-icon cyan">
+                    <i class="fas fa-magnifying-glass-chart"></i>
+                  </div>
+                  <div class="mega-item-text">
+                    <div class="mega-item-title">SEO Optimization</div>
+                    <div class="mega-item-desc">
+                      Bantu website tampil di halaman Google
+                    </div>
+                  </div>
+                </a>
+
+                <a href="#fitur" class="mega-item">
+                  <div class="mega-icon green">
+                    <i class="fas fa-shield-halved"></i>
+                  </div>
+                  <div class="mega-item-text">
+                    <div class="mega-item-title">
+                      Maintenance & Support
+                      <span class="mega-badge">Segera Hadir</span>
+                    </div>
+                    <div class="mega-item-desc">
+                      Perawatan & pembaruan website berkala
+                    </div>
+                  </div>
+                </a>
+              </div>
+
+              <!-- Kolom 3: Infrastruktur -->
+              <div>
+                <div class="mega-col-title">Infrastruktur</div>
+
+                <a
+                  href="https://wa.me/6285273788038"
+                  class="mega-item"
+                  target="_blank"
+                >
+                  <div class="mega-icon orange">
+                    <i class="fas fa-server"></i>
+                  </div>
+                  <div class="mega-item-text">
+                    <div class="mega-item-title">VPS</div>
+                    <div class="mega-item-desc">
+                      Server pribadi untuk performa maksimal
+                    </div>
+                  </div>
+                </a>
+
+                <div class="mega-item" style="cursor: default">
+                  <div class="mega-icon blue">
+                    <i class="fas fa-hard-drive"></i>
+                  </div>
+                  <div class="mega-item-text">
+                    <div class="mega-item-title">
+                      Hosting
+                      <span class="mega-badge">Segera Hadir</span>
+                    </div>
+                    <div class="mega-item-desc">
+                      Ruang penyimpanan untuk website Anda
+                    </div>
+                  </div>
+                </div>
+
+                <div class="mega-item" style="cursor: default">
+                  <div class="mega-icon cyan"><i class="fas fa-globe"></i></div>
+                  <div class="mega-item-text">
+                    <div class="mega-item-title">
+                      Domain
+                      <span class="mega-badge">Segera Hadir</span>
+                    </div>
+                    <div class="mega-item-desc">
+                      Alamat website dengan nama pilihan Anda
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Kolom 4: Hidden Web -->
+              <div>
+                <div class="mega-col-title">Hidden Web</div>
+                <div class="mega-links-list">
+                  <a href="#testimony" class="mega-simple-link">Bukti Klien</a>
+                  <a href="#faq" class="mega-simple-link">FAQ</a>
+                  <a href="/ketentuan-layanan.html" class="mega-simple-link"
+                    >Ketentuan Layanan</a
+                  >
+                  <a
+                    href="https://wa.me/6285273788038"
+                    class="mega-simple-link"
+                    target="_blank"
+                    >Karir</a
+                  >
+                </div>
+              </div>
+            </div>
+
+            <div class="mega-dropdown-footer">
+              <a
+                href="https://wa.me/6285273788038"
+                class="mega-footer-link"
+                target="_blank"
+              >
+                <i class="fas fa-headset"></i> Hubungi Sales
+              </a>
+              <a href="#demo" class="mega-footer-link">
+                <i class="fas fa-comment-dots"></i> Lihat Demo
+              </a>
+              <a
+                href="javascript:downloadMediaKit('pricelist')"
+                class="mega-footer-link"
+              >
+                <i class="fas fa-download"></i> Download Price List
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <a href="#harga" class="nav-link">Harga</a>
+        <a href="#faq" class="nav-link">FAQ</a>
+        <button id="theme-toggle" title="Ganti tema">
+          <i class="fas fa-moon"></i>
+        </button>
+      </nav>
+
+      <div class="dropdown-overlay" id="dropdown-overlay"></div>
+
+      <div class="header-actions">
+        <a href="https://wa.me/6285273788038" class="btn" target="_blank">
+          <i class="fab fa-whatsapp"></i> Mulai Sekarang
+        </a>
+
+        <a href="/login.html" class="btn" target="_blank">
+          <i class="fab fa-whatsapp"></i> Login
+        </a>
+
+        <a href="/login.html" class="btn" target="_blank">
+          <i class="fab fa-whatsapp"></i> Register
+        </a>
+
+        <button class="hamburger-btn" id="hamburger-btn" aria-label="Buka menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Mobile Menu Drawer -->
+    <div class="mobile-menu-overlay" id="mobile-menu-overlay"></div>
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-menu-header">
+        <div class="logo">
+          <div class="logo-icon">HW</div>
+          <span>Hidden Web</span>
+        </div>
+        <button
+          class="mobile-menu-close"
+          id="mobile-menu-close"
+          aria-label="Tutup menu"
+        >
+          <i class="fas fa-xmark"></i>
+        </button>
+      </div>
+
+      <div class="mobile-menu-body">
+        <a href="#home" class="mobile-nav-link">Beranda</a>
+
+        <div class="mobile-accordion" id="mobile-accordion-layanan">
+          <button class="mobile-accordion-trigger">
+            Layanan <i class="fas fa-chevron-down"></i>
+          </button>
+          <div class="mobile-accordion-content">
+            <a href="#harga" class="mobile-sub-link"
+              ><i class="fas fa-rocket"></i> Landing Page</a
+            >
+            <a href="#harga" class="mobile-sub-link"
+              ><i class="fas fa-building"></i> Company Profile</a
+            >
+            <a href="#harga" class="mobile-sub-link"
+              ><i class="fas fa-cart-shopping"></i> Toko Online</a
+            >
+            <a href="#harga" class="mobile-sub-link"
+              ><i class="fas fa-layer-group"></i> Custom Web App</a
+            >
+            <a href="#fitur" class="mobile-sub-link"
+              ><i class="fas fa-robot"></i> AI Chatbot</a
+            >
+            <a href="#fitur" class="mobile-sub-link"
+              ><i class="fas fa-magnifying-glass-chart"></i> SEO Optimization</a
+            >
+            <a
+              href="https://wa.me/6285273788038"
+              class="mobile-sub-link"
+              target="_blank"
+              ><i class="fas fa-server"></i> VPS</a
+            >
+            <div class="mobile-sub-link" style="cursor: default">
+              <i class="fas fa-hard-drive"></i> Hosting
+              <span class="mega-badge" style="margin-left: 6px"
+                >Segera Hadir</span
+              >
+            </div>
+            <div class="mobile-sub-link" style="cursor: default">
+              <i class="fas fa-globe"></i> Domain
+              <span class="mega-badge" style="margin-left: 6px"
+                >Segera Hadir</span
+              >
+            </div>
+          </div>
+        </div>
+
+        <a href="#harga" class="mobile-nav-link">Harga</a>
+        <a href="#faq" class="mobile-nav-link">FAQ</a>
+        <a href="#testimony" class="mobile-nav-link">Bukti Klien</a>
+        <a href="/ketentuan-layanan.html" class="mobile-nav-link"
+          >Ketentuan Layanan</a
+        >
+
+        <div class="mobile-menu-divider"></div>
+
+        <div class="mobile-theme-row">
+          <span>Mode Tampilan</span>
+          <button id="theme-toggle-mobile" aria-label="Ganti tema">
+            <i class="fas fa-moon" id="theme-icon-mobile"></i>
+          </button>
+        </div>
+
+        <div class="mobile-menu-divider"></div>
+
+        <div class="mobile-menu-actions">
+          <a href="https://wa.me/6285273788038" class="btn" target="_blank">
+            <i class="fab fa-whatsapp"></i> Mulai Sekarang
+          </a>
+          <a href="/login.html" class="btn btn-secondary" target="_blank">
+            Login
+          </a>
+          <a href="/login.html" class="btn" target="_blank"> Register </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1 class="hero-title fade-in">
+          Website Premium<br />Dengan Bukti Nyata
+        </h1>
+        <p class="hero-subtitle fade-in">
+          Lihat langsung website yang telah kami bangun untuk klien Indonesia.
+          Hasil nyata, bukan sekadar janji! Dilengkapi dengan semua fitur
+          modern.
+        </p>
+
+        <div
+          style="
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin: 50px 0;
+          "
+        >
+          <a href="#testimony" class="btn">
+            <i class="fas fa-camera"></i> Lihat Bukti
+          </a>
+          <a href="#harga" class="btn btn-secondary">
+            <i class="fas fa-calculator"></i> Kalkulator Harga
+          </a>
+          <a
+            href="https://wa.me/6285273788038"
+            class="btn"
+            target="_blank"
+            style="background: linear-gradient(135deg, #25d366, #128c7e)"
+          >
+            <i class="fas fa-comments"></i> Konsultasi Gratis
+          </a>
+        </div>
+
+        <!-- Stats -->
+        <div class="stats-grid">
+          <div class="stat-card fade-in">
+            <div class="stat-number" data-target="247">0</div>
+            <p>Klien Puas</p>
+          </div>
+          <div class="stat-card fade-in">
+            <div class="stat-number" data-target="98">0</div>
+            <p>Rating 5⭐</p>
+          </div>
+          <div class="stat-card fade-in">
+            <div class="stat-number" data-target="156">0</div>
+            <p>Website Sukses</p>
+          </div>
+          <div class="stat-card fade-in">
+            <div class="stat-number" data-target="24">0</div>
+            <p>Support 24/7</p>
+          </div>
+        </div>
+
+        <!-- Integration Badges -->
+        <div class="integration-badges fade-in">
+          <div class="badge">
+            <div class="badge-icon"><i class="fas fa-shield-alt"></i></div>
+            <h4>SSL Premium</h4>
+            <p>Keamanan terbaik</p>
+          </div>
+          <div class="badge">
+            <div class="badge-icon"><i class="fas fa-bolt"></i></div>
+            <h4>Cloudflare CDN</h4>
+            <p>Loading super cepat</p>
+          </div>
+          <div class="badge">
+            <div class="badge-icon"><i class="fas fa-mobile-alt"></i></div>
+            <h4>PWA Ready</h4>
+            <p>Install seperti aplikasi</p>
+          </div>
+          <div class="badge">
+            <div class="badge-icon"><i class="fas fa-robot"></i></div>
+            <h4>AI Integrated</h4>
+            <p>Kecerdasan buatan</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Progress Circle Section -->
+    <section id="progress">
+      <div class="container">
+        <h2 class="section-title">Live Progress Projek</h2>
+        <p class="section-subtitle">
+          Pantau perkembangan proyek yang sedang kami kerjakan
+        </p>
+
+        <div class="progress-circle-container">
+          <div class="progress-circle-wrapper fade-in">
+            <div style="position: relative">
+              <svg class="progress-circle-svg">
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="54"
+                  class="progress-circle-bg"
+                ></circle>
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="54"
+                  class="progress-circle-fill"
+                  data-percent="85"
+                ></circle>
+              </svg>
+              <div class="progress-circle-text">85%</div>
+            </div>
+            <h4>Website PT Maju Jaya</h4>
+            <p>E-commerce Fashion</p>
+          </div>
+
+          <div class="progress-circle-wrapper fade-in">
+            <div style="position: relative">
+              <svg class="progress-circle-svg">
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="54"
+                  class="progress-circle-bg"
+                ></circle>
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="54"
+                  class="progress-circle-fill"
+                  data-percent="60"
+                ></circle>
+              </svg>
+              <div class="progress-circle-text">60%</div>
+            </div>
+            <h4>Mobile App Startup</h4>
+            <p>Food Delivery Service</p>
+          </div>
+
+          <div class="progress-circle-wrapper fade-in">
+            <div style="position: relative">
+              <svg class="progress-circle-svg">
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="54"
+                  class="progress-circle-bg"
+                ></circle>
+                <circle
+                  cx="60"
+                  cy="60"
+                  r="54"
+                  class="progress-circle-fill"
+                  data-percent="95"
+                ></circle>
+              </svg>
+              <div class="progress-circle-text">95%</div>
+            </div>
+            <h4>Company Profile</h4>
+            <p>PT Sejahtera Abadi</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technology Stack Section -->
+    <section id="technology">
+      <div class="container">
+        <h2 class="section-title">Teknologi yang Kami Gunakan</h2>
+        <p class="section-subtitle">
+          Menggunakan stack teknologi terbaru untuk performa optimal
+        </p>
+
+        <div class="tech-stack">
+          <div class="tech-item fade-in">
+            <i class="fab fa-react" style="color: #61dafb; font-size: 2rem"></i>
+            <span>React.js</span>
+            <div class="tooltip">
+              Library JavaScript untuk UI yang interaktif
+            </div>
+          </div>
+
+          <div class="tech-item fade-in">
+            <i
+              class="fab fa-node-js"
+              style="color: #68a063; font-size: 2rem"
+            ></i>
+            <span>Node.js</span>
+            <div class="tooltip">Runtime JavaScript untuk backend</div>
+          </div>
+
+          <div class="tech-item fade-in">
+            <i
+              class="fas fa-database"
+              style="color: #00618a; font-size: 2rem"
+            ></i>
+            <span>MongoDB</span>
+            <div class="tooltip">Database NoSQL yang scalable</div>
+          </div>
+
+          <div class="tech-item fade-in">
+            <i class="fab fa-aws" style="color: #ff9900; font-size: 2rem"></i>
+            <span>AWS</span>
+            <div class="tooltip">Cloud hosting terpercaya</div>
+          </div>
+
+          <div class="tech-item fade-in">
+            <i class="fas fa-fire" style="color: #ffca28; font-size: 2rem"></i>
+            <span>Firebase</span>
+            <div class="tooltip">Backend-as-a-Service</div>
+          </div>
+
+          <div class="tech-item fade-in">
+            <i class="fab fa-vuejs" style="color: #42b883; font-size: 2rem"></i>
+            <span>Vue.js</span>
+            <div class="tooltip">Framework JavaScript progresif</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Client Onboarding Timeline -->
+    <section id="onboarding">
+      <div class="container">
+        <h2 class="section-title">Proses Pengerjaan</h2>
+        <p class="section-subtitle">
+          Dari konsultasi hingga website live hanya dalam 6 langkah
+        </p>
+
+        <div class="timeline">
+          <div class="timeline-step fade-in">
+            <div class="step-number">1</div>
+            <div class="step-content">
+              <h3>Konsultasi Gratis</h3>
+              <p>
+                Diskusi kebutuhan via Zoom/WhatsApp untuk memahami visi bisnis
+                Anda.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-step fade-in">
+            <div class="step-number">2</div>
+            <div class="step-content">
+              <h3>Mockup Design</h3>
+              <p>Preview website dalam bentuk desain sebelum coding dimulai.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step fade-in">
+            <div class="step-number">3</div>
+            <div class="step-content">
+              <h3>Development</h3>
+              <p>
+                Pembuatan website dengan teknologi terbaru dan coding terbaik.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-step fade-in">
+            <div class="step-number">4</div>
+            <div class="step-content">
+              <h3>Review & Revisi</h3>
+              <p>Anda memberikan feedback dan kami melakukan perbaikan.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step fade-in">
+            <div class="step-number">5</div>
+            <div class="step-content">
+              <h3>Testing</h3>
+              <p>Testing menyeluruh di berbagai device dan browser.</p>
+            </div>
+          </div>
+
+          <div class="timeline-step fade-in">
+            <div class="step-number">6</div>
+            <div class="step-content">
+              <h3>Launch & Support</h3>
+              <p>Website go live dan kami berikan support pasca-launch.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TESTIMONI SECTION -->
+    <section id="testimony">
+      <div class="container">
+        <h2 class="section-title">Bukti Nyata Klien Puas</h2>
+        <p class="section-subtitle">
+          Lihat langsung screenshot dan testimoni dari klien yang telah
+          menggunakan layanan kami
+        </p>
+
+        <!-- Foto Testimoni -->
+        <div class="testimony-gallery">
+          <div class="testimony-photo-card fade-in">
+            <img
+              src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Website E-commerce Fashion"
+              class="testimony-photo"
+            />
+            <div class="testimony-photo-info">
+              <div class="testimony-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimony-text">
+                "Penjualan meningkat 300% setelah website launch. Desain premium
+                dan loading super cepat!"
+              </p>
+              <div class="testimony-author">
+                <img
+                  src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                  alt="Sari Dewi"
+                  class="author-avatar"
+                />
+                <div class="author-info">
+                  <h4>Sari Dewi</h4>
+                  <p>Owner Fashion Brand</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimony-photo-card fade-in">
+            <img
+              src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Dashboard Analytics"
+              class="testimony-photo"
+            />
+            <div class="testimony-photo-info">
+              <div class="testimony-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimony-text">
+                "Dashboard analytics membantu saya mengambil keputusan bisnis
+                dengan data real-time."
+              </p>
+              <div class="testimony-author">
+                <img
+                  src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                  alt="Budi Santoso"
+                  class="author-avatar"
+                />
+                <div class="author-info">
+                  <h4>Budi Santoso</h4>
+                  <p>CEO Startup Tech</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="testimony-photo-card fade-in">
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
+              alt="Mobile Responsive"
+              class="testimony-photo"
+            />
+            <div class="testimony-photo-info">
+              <div class="testimony-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p class="testimony-text">
+                "Website sempurna di semua device. 70% traffic kami berasal dari
+                mobile!"
+              </p>
+              <div class="testimony-author">
+                <img
+                  src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=100&q=80"
+                  alt="Maya Sari"
+                  class="author-avatar"
+                />
+                <div class="author-info">
+                  <h4>Maya Sari</h4>
+                  <p>Pemilik Catering</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Live Rating System -->
+        <div class="live-rating fade-in">
+          <h3 style="text-align: center; margin-bottom: 30px">
+            <i class="fas fa-star"></i> Rating Live dari Klien
+          </h3>
+
+          <div
+            style="
+              display: flex;
+              flex-wrap: wrap;
+              align-items: center;
+              justify-content: center;
+              gap: 40px;
+              margin-bottom: 40px;
+            "
+          >
+            <div style="text-align: center">
+              <div
+                style="
+                  font-size: 3.5rem;
+                  font-weight: bold;
+                  color: var(--yellow);
+                "
+              >
+                4.9
+              </div>
+              <div class="star-rating" style="font-size: 1.5rem">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+              <p style="color: var(--muted); margin-top: 10px">
+                Dari 247 ulasan
+              </p>
+            </div>
+
+            <div style="flex: 1; max-width: 400px">
+              <div class="rating-bar">
+                <div class="rating-bar-label">5★</div>
+                <div class="rating-bar-bg">
+                  <div class="rating-bar-fill" style="width: 85%"></div>
+                </div>
+                <div>85%</div>
+              </div>
+              <div class="rating-bar">
+                <div class="rating-bar-label">4★</div>
+                <div class="rating-bar-bg">
+                  <div class="rating-bar-fill" style="width: 10%"></div>
+                </div>
+                <div>10%</div>
+              </div>
+              <div class="rating-bar">
+                <div class="rating-bar-label">3★</div>
+                <div class="rating-bar-bg">
+                  <div class="rating-bar-fill" style="width: 3%"></div>
+                </div>
+                <div>3%</div>
+              </div>
+              <div class="rating-bar">
+                <div class="rating-bar-label">2★</div>
+                <div class="rating-bar-bg">
+                  <div class="rating-bar-fill" style="width: 1%"></div>
+                </div>
+                <div>1%</div>
+              </div>
+              <div class="rating-bar">
+                <div class="rating-bar-label">1★</div>
+                <div class="rating-bar-bg">
+                  <div class="rating-bar-fill" style="width: 1%"></div>
+                </div>
+                <div>1%</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Form tambah ulasan -->
+          <div style="text-align: center">
+            <h4 style="margin-bottom: 20px">Tambahkan Ulasan Anda</h4>
+            <div
+              class="star-rating"
+              id="rating-input"
+              style="margin-bottom: 20px"
+            >
+              <span onclick="rateStar(1)"><i class="far fa-star"></i></span>
+              <span onclick="rateStar(2)"><i class="far fa-star"></i></span>
+              <span onclick="rateStar(3)"><i class="far fa-star"></i></span>
+              <span onclick="rateStar(4)"><i class="far fa-star"></i></span>
+              <span onclick="rateStar(5)"><i class="far fa-star"></i></span>
+            </div>
+            <textarea
+              id="review-text"
+              placeholder="Bagikan pengalaman Anda dengan Hidden Web..."
+              style="
+                width: 100%;
+                max-width: 500px;
+                padding: 15px;
+                background: rgba(255, 255, 255, 0.05);
+                border: 1px solid rgba(255, 255, 255, 0.2);
+                border-radius: 10px;
+                color: var(--text);
+                margin-bottom: 20px;
+                min-height: 100px;
+              "
+            ></textarea>
+            <button
+              class="btn"
+              onclick="submitReview()"
+              style="
+                background: linear-gradient(
+                  135deg,
+                  var(--yellow),
+                  var(--orange)
+                );
+              "
+            >
+              <i class="fas fa-paper-plane"></i> Kirim Ulasan
+            </button>
+          </div>
+        </div>
+
+        <!-- Countdown Timer Promo -->
+        <div class="promo-timer fade-in">
+          <h3 style="margin-bottom: 15px">
+            <i class="fas fa-clock"></i> PROMO AKHIR BULAN!
+          </h3>
+          <p style="font-size: 1.1rem; margin-bottom: 10px">
+            Diskon 30% untuk pemesanan dalam:
+          </p>
+
+          <div class="countdown-box">
+            <div class="countdown-unit">
+              <div class="countdown-value" id="countdown-days">00</div>
+              <div class="countdown-label">Hari</div>
+            </div>
+            <div class="countdown-unit">
+              <div class="countdown-value" id="countdown-hours">00</div>
+              <div class="countdown-label">Jam</div>
+            </div>
+            <div class="countdown-unit">
+              <div class="countdown-value" id="countdown-minutes">00</div>
+              <div class="countdown-label">Menit</div>
+            </div>
+            <div class="countdown-unit">
+              <div class="countdown-value" id="countdown-seconds">00</div>
+              <div class="countdown-label">Detik</div>
+            </div>
+          </div>
+
+          <a
+            href="https://wa.me/6285273788038"
+            class="btn"
+            style="background: #000; color: white; margin-top: 20px"
+          >
+            <i class="fas fa-bolt"></i> Klaim Promo Sekarang
+          </a>
+        </div>
+
+        <!-- Portfolio Slider -->
+        <div class="portfolio-slider fade-in">
+          <h3 class="section-title" style="margin-bottom: 40px">
+            <i class="fas fa-images"></i> Portfolio Preview
+          </h3>
+
+          <div style="position: relative">
+            <div class="slides-container" id="slides-container">
+              <div
+                class="portfolio-slide"
+                style="background: linear-gradient(135deg, #001d3d, #003566)"
+              >
+                <div class="slide-badge">E-commerce</div>
+                <h3
+                  style="
+                    color: var(--accent);
+                    margin-bottom: 20px;
+                    font-size: 2.2rem;
+                  "
+                >
+                  Fashion Store
+                </h3>
+                <p
+                  style="
+                    font-size: 1.2rem;
+                    max-width: 600px;
+                    margin-bottom: 30px;
+                  "
+                >
+                  Website dengan conversion rate 8.5%, integrasi 5 payment
+                  gateway, dan dashboard analytics real-time.
+                </p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap">
+                  <span
+                    style="
+                      background: rgba(0, 255, 204, 0.2);
+                      padding: 8px 20px;
+                      border-radius: 20px;
+                      font-size: 0.9rem;
+                    "
+                    >React.js</span
+                  >
+                  <span
+                    style="
+                      background: rgba(157, 78, 221, 0.2);
+                      padding: 8px 20px;
+                      border-radius: 20px;
+                      font-size: 0.9rem;
+                    "
+                    >Node.js</span
+                  >
+                  <span
+                    style="
+                      background: rgba(255, 0, 255, 0.2);
+                      padding: 8px 20px;
+                      border-radius: 20px;
+                      font-size: 0.9rem;
+                    "
+                    >MongoDB</span
+                  >
+                  <span
+                    style="
+                      background: rgba(0, 245, 255, 0.2);
+                      padding: 8px 20px;
+                      border-radius: 20px;
+                      font-size: 0.9rem;
+                    "
+                    >AWS</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="portfolio-slide"
+                style="background: linear-gradient(135deg, #3a0ca3, #4361ee)"
+              >
+                <div class="slide-badge">Corporate</div>
+                <h3
+                  style="
+                    color: var(--accent);
+                    margin-bottom: 20px;
+                    font-size: 2.2rem;
+                  "
+                >
+                  Company Profile
+                </h3>
+                <p
+                  style="
+                    font-size: 1.2rem;
+                    max-width: 600px;
+                    margin-bottom: 30px;
+                  "
+                >
+                  Website perusahaan dengan sistem manajemen konten custom,
+                  multi-language support, dan SEO optimization.
+                </p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap">
+                  <span
+                    style="
+                      background: rgba(0, 255, 204, 0.2);
+                      padding: 8px 20px;
+                      border-radius: 20px;
+                      font-size: 0.9rem;
+                    "
+                    >Next.js</span
+                  >
+                  <span
+                    style="
+                      background: rgba(157, 78, 221, 0.2);
+                      padding: 8px 20px;
+                      border-radius: 20px;
+                      font-size: 0.9rem;
+                    "
+                    >GraphQL</span
+                  >
+                  <span
+                    style="
+                      background: rgba(255, 0, 255, 0.2);
+                      padding: 8px 20px;
+                      border-radius: 20px;
+                      font-size: 0.9rem;
+                    "
+                    >PostgreSQL</span
+                  >
+                  <span
+                    style="
+                      background: rgba(0, 245, 255, 0.2);
+                      padding: 8px 20px;
+                      border-radius: 20px;
+                      font-size: 0.9rem;
+                    "
+                    >Cloudflare</span
+                  >
+                </div>
+              </div>
+
+              <div
+                class="portfolio-slide"
+                style="background: linear-gradient(135deg, #7209b7, #f72585)"
+              >
+                <div class="slide-badge">Mobile App</div>
+                <h3
+                  style="
+                    color: var(--accent);
+                    margin-bottom: 20px;
+                    font-size: 2.2rem;
+                  "
+                >
+                  Food Delivery
+                </h3>
+                <p
+                  style="
+                    font-size: 1.2rem;
+                    max-width: 600px;
+                    margin-bottom: 30px;
+                  "
+                >
+                  Aplikasi mobile dengan website admin panel untuk manajemen
+                  order dan inventory real-time.
+                </p>
+                <div style="display: flex; gap: 15px; flex-wrap: wrap">
+                  <span
+                    style="
+                      background: rgba(0, 255, 204, 0.2);
+                      padding: 8px 20px;
+                      border-radius: 20px;
+                      font-size: 0.9rem;
+                    "
+                    >Flutter</span
+                  >
+                  <span
+                    style="
+                      background: rgba(157, 78, 221, 0.2);
+                      padding: 8px 20px;
+                      border-radius: 20px;
+                      font-size: 0.9rem;
+                    "
+                    >Firebase</span
+                  >
+                  <span
+                    style="
+                      background: rgba(255, 0, 255, 0.2);
+                      padding: 8px 20px;
+                      border-radius: 20px;
+                      font-size: 0.9rem;
+                    "
+                    >REST API</span
+                  >
+                  <span
+                    style="
+                      background: rgba(0, 245, 255, 0.2);
+                      padding: 8px 20px;
+                      border-radius: 20px;
+                      font-size: 0.9rem;
+                    "
+                    >Google Maps</span
+                  >
+                </div>
+              </div>
+            </div>
+
+            <button
+              onclick="prevSlide()"
+              style="
+                position: absolute;
+                left: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0, 0, 0, 0.7);
+                border: none;
+                color: white;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                cursor: pointer;
+                font-size: 1.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <i class="fas fa-chevron-left"></i>
+            </button>
+            <button
+              onclick="nextSlide()"
+              style="
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: rgba(0, 0, 0, 0.7);
+                border: none;
+                color: white;
+                width: 50px;
+                height: 50px;
+                border-radius: 50%;
+                cursor: pointer;
+                font-size: 1.5rem;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              "
+            >
+              <i class="fas fa-chevron-right"></i>
+            </button>
+          </div>
+
+          <div class="slide-dots">
+            <div class="slide-dot active" onclick="goToSlide(0)"></div>
+            <div class="slide-dot" onclick="goToSlide(1)"></div>
+            <div class="slide-dot" onclick="goToSlide(2)"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Kalkulator Harga Interaktif -->
+    <section id="harga-kalkulator">
+      <div class="container">
+        <h2 class="section-title">Kalkulator Harga Interaktif</h2>
+        <p class="section-subtitle">
+          Hitung estimasi harga website Anda secara real-time
+        </p>
+
+        <div class="harga-calculator fade-in">
+          <div class="calculator-controls">
+            <div>
+              <label
+                style="display: block; margin-bottom: 10px; font-weight: 600"
+                >Jenis Website</label
+              >
+              <select id="website-type" class="calc-input">
+                <option value="landing">Landing Page (Rp 2.5jt)</option>
+                <option value="company">Company Profile (Rp 4.5jt)</option>
+                <option value="ecommerce" selected>E-commerce (Rp 10jt)</option>
+                <option value="custom">Custom System (Rp 15jt+)</option>
+              </select>
+            </div>
+
+            <div>
+              <label
+                style="display: block; margin-bottom: 10px; font-weight: 600"
+                >Jumlah Halaman</label
+              >
+              <input
+                type="range"
+                id="page-count"
+                min="1"
+                max="50"
+                value="5"
+                class="calc-input"
+                style="padding: 0"
+              />
+              <div
+                style="
+                  display: flex;
+                  justify-content: space-between;
+                  margin-top: 10px;
+                "
+              >
+                <span>1</span>
+                <span id="page-value">5 halaman</span>
+                <span>50+</span>
+              </div>
+            </div>
+
+            <div>
+              <label
+                style="display: block; margin-bottom: 10px; font-weight: 600"
+                >Waktu Pengerjaan</label
+              >
+              <select id="timeline" class="calc-input">
+                <option value="normal">Normal (3-4 minggu)</option>
+                <option value="fast">Cepat (2 minggu) +20%</option>
+                <option value="urgent">Sangat Cepat (1 minggu) +50%</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="margin: 30px 0">
+            <h4 style="margin-bottom: 15px">Fitur Tambahan</h4>
+            <div
+              style="
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 15px;
+              "
+            >
+              <label class="feature-checkbox">
+                <input type="checkbox" value="500000" id="feature-payment" />
+                <span>Payment Gateway (+Rp 500rb)</span>
+              </label>
+              <label class="feature-checkbox">
+                <input type="checkbox" value="800000" id="feature-admin" />
+                <span>Admin Panel (+Rp 800rb)</span>
+              </label>
+              <label class="feature-checkbox">
+                <input type="checkbox" value="1200000" id="feature-mobile" />
+                <span>Mobile App (+Rp 1.2jt)</span>
+              </label>
+              <label class="feature-checkbox">
+                <input type="checkbox" value="600000" id="feature-seo" />
+                <span>SEO Optimization (+Rp 600rb)</span>
+              </label>
+              <label class="feature-checkbox">
+                <input type="checkbox" value="1000000" id="feature-chatbot" />
+                <span>AI Chatbot (+Rp 1jt)</span>
+              </label>
+              <label class="feature-checkbox">
+                <input type="checkbox" value="700000" id="feature-analytics" />
+                <span>Analytics Dashboard (+Rp 700rb)</span>
+              </label>
+            </div>
+          </div>
+
+          <div
+            style="
+              text-align: center;
+              padding: 30px;
+              background: rgba(0, 0, 0, 0.3);
+              border-radius: 15px;
+              margin-top: 30px;
+            "
+          >
+            <h3 style="margin-bottom: 10px">Estimasi Total Harga:</h3>
+            <div
+              id="total-price"
+              style="
+                font-size: 3.5rem;
+                color: var(--accent);
+                font-weight: bold;
+                margin: 20px 0;
+              "
+            >
+              Rp 10.000.000
+            </div>
+            <p style="color: var(--muted); margin-bottom: 20px">
+              *Harga belum termasuk PPN dan domain hosting
+            </p>
+            <button
+              class="btn"
+              onclick="orderCustom()"
+              style="padding: 15px 40px; font-size: 1.1rem"
+            >
+              <i class="fas fa-shopping-cart"></i> Pesan dengan Harga Ini
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Payment Plan Calculator -->
+    <section id="payment-calculator">
+      <div class="container">
+        <h2 class="section-title">Kalkulator Cicilan</h2>
+        <p class="section-subtitle">
+          Pilih metode pembayaran yang sesuai dengan kebutuhan Anda
+        </p>
+
+        <div class="payment-calculator fade-in">
+          <div style="text-align: center; margin-bottom: 30px">
+            <div
+              id="payment-base-price"
+              style="
+                font-size: 2.5rem;
+                color: var(--accent);
+                font-weight: bold;
+                margin-bottom: 10px;
+              "
+            >
+              Rp 10.000.000
+            </div>
+            <p>Total harga website</p>
+          </div>
+
+          <div class="payment-options">
+            <div
+              class="payment-option selected"
+              data-months="1"
+              data-interest="0"
+              onclick="selectPaymentOption(this)"
+            >
+              <h4>Lunas</h4>
+              <div
+                style="
+                  font-size: 1.8rem;
+                  color: var(--accent);
+                  font-weight: bold;
+                  margin: 10px 0;
+                "
+              >
+                Rp 10.000.000
+              </div>
+              <p>Bayar sekaligus</p>
+              <p
+                style="
+                  color: var(--success);
+                  font-size: 0.9rem;
+                  margin-top: 10px;
+                "
+              >
+                <i class="fas fa-gift"></i> Bonus domain gratis
+              </p>
+            </div>
+
+            <div
+              class="payment-option"
+              data-months="3"
+              data-interest="5"
+              onclick="selectPaymentOption(this)"
+            >
+              <h4>3 Bulan</h4>
+              <div
+                style="
+                  font-size: 1.8rem;
+                  color: var(--accent);
+                  font-weight: bold;
+                  margin: 10px 0;
+                "
+              >
+                Rp 3.500.000/bln
+              </div>
+              <p>Total: Rp 10.500.000</p>
+              <p
+                style="color: var(--muted); font-size: 0.9rem; margin-top: 10px"
+              >
+                Bunga 5%
+              </p>
+            </div>
+
+            <div
+              class="payment-option"
+              data-months="6"
+              data-interest="8"
+              onclick="selectPaymentOption(this)"
+            >
+              <h4>6 Bulan</h4>
+              <div
+                style="
+                  font-size: 1.8rem;
+                  color: var(--accent);
+                  font-weight: bold;
+                  margin: 10px 0;
+                "
+              >
+                Rp 1.800.000/bln
+              </div>
+              <p>Total: Rp 10.800.000</p>
+              <p
+                style="color: var(--muted); font-size: 0.9rem; margin-top: 10px"
+              >
+                Bunga 8%
+              </p>
+            </div>
+
+            <div
+              class="payment-option"
+              data-months="12"
+              data-interest="12"
+              onclick="selectPaymentOption(this)"
+            >
+              <h4>12 Bulan</h4>
+              <div
+                style="
+                  font-size: 1.8rem;
+                  color: var(--accent);
+                  font-weight: bold;
+                  margin: 10px 0;
+                "
+              >
+                Rp 933.000/bln
+              </div>
+              <p>Total: Rp 11.200.000</p>
+              <p
+                style="color: var(--muted); font-size: 0.9rem; margin-top: 10px"
+              >
+                Bunga 12%
+              </p>
+            </div>
+          </div>
+
+          <div style="text-align: center; margin-top: 40px">
+            <h4 style="margin-bottom: 20px">Ringkasan Pembayaran</h4>
+            <div
+              style="
+                display: flex;
+                justify-content: center;
+                gap: 40px;
+                flex-wrap: wrap;
+              "
+            >
+              <div style="text-align: center">
+                <div style="font-size: 1.2rem; color: var(--muted)">
+                  DP Awal
+                </div>
+                <div
+                  id="dp-amount"
+                  style="
+                    font-size: 2rem;
+                    color: var(--accent);
+                    font-weight: bold;
+                  "
+                >
+                  Rp 5.000.000
+                </div>
+              </div>
+              <div style="text-align: center">
+                <div style="font-size: 1.2rem; color: var(--muted)">
+                  Cicilan/Bulan
+                </div>
+                <div
+                  id="installment-amount"
+                  style="
+                    font-size: 2rem;
+                    color: var(--accent);
+                    font-weight: bold;
+                  "
+                >
+                  Rp 0
+                </div>
+              </div>
+              <div style="text-align: center">
+                <div style="font-size: 1.2rem; color: var(--muted)">Total</div>
+                <div
+                  id="total-payment"
+                  style="
+                    font-size: 2rem;
+                    color: var(--accent);
+                    font-weight: bold;
+                  "
+                >
+                  Rp 10.000.000
+                </div>
+              </div>
+            </div>
+
+            <button
+              class="btn"
+              onclick="applyPaymentPlan()"
+              style="margin-top: 30px; padding: 15px 40px"
+            >
+              <i class="fas fa-file-contract"></i> Ajukan Pembayaran Cicilan
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HARGA SECTION -->
+    <section id="harga">
+      <div class="container">
+        <h2 class="section-title">Paket Harga Kami</h2>
+        <p class="section-subtitle">
+          Pilih paket yang sesuai dengan kebutuhan bisnis Anda
+        </p>
+
+        <!-- Download Media Kit & Brosur Digital -->
+        <div class="media-kit fade-in">
+          <h3 style="text-align: center; margin-bottom: 20px">
+            <i class="fas fa-download"></i> Download Brosur & Media Kit
+          </h3>
+          <p
+            style="
+              text-align: center;
+              color: var(--muted);
+              max-width: 600px;
+              margin: 0 auto 40px;
+            "
+          >
+            Dapatkan informasi lengkap dalam format PDF untuk presentasi ke tim
+            Anda
+          </p>
+
+          <div class="media-kit-cards">
+            <div class="media-kit-card fade-in">
+              <div
+                style="
+                  font-size: 3rem;
+                  color: var(--danger);
+                  margin-bottom: 20px;
+                "
+              >
+                <i class="fas fa-file-pdf"></i>
+              </div>
+              <h4 style="margin-bottom: 10px">Company Profile</h4>
+              <p style="color: var(--muted); margin-bottom: 20px">
+                Profil lengkap Hidden Web
+              </p>
+              <button
+                onclick="downloadMediaKit('profile')"
+                class="btn"
+                style="width: 100%"
+              >
+                <i class="fas fa-download"></i> Download PDF
+              </button>
+            </div>
+
+            <div class="media-kit-card fade-in">
+              <div
+                style="
+                  font-size: 3rem;
+                  color: var(--success);
+                  margin-bottom: 20px;
+                "
+              >
+                <i class="fas fa-money-bill-wave"></i>
+              </div>
+              <h4 style="margin-bottom: 10px">Price List</h4>
+              <p style="color: var(--muted); margin-bottom: 20px">
+                Daftar harga lengkap + bonus
+              </p>
+              <button
+                onclick="downloadMediaKit('pricelist')"
+                class="btn"
+                style="width: 100%"
+              >
+                <i class="fas fa-download"></i> Download PDF
+              </button>
+            </div>
+
+            <div class="media-kit-card fade-in">
+              <div
+                style="
+                  font-size: 3rem;
+                  color: var(--purple);
+                  margin-bottom: 20px;
+                "
+              >
+                <i class="fas fa-briefcase"></i>
+              </div>
+              <h4 style="margin-bottom: 10px">Portfolio Book</h4>
+              <p style="color: var(--muted); margin-bottom: 20px">
+                50+ contoh website terbaik
+              </p>
+              <button
+                onclick="downloadMediaKit('portfolio')"
+                class="btn"
+                style="width: 100%"
+              >
+                <i class="fas fa-download"></i> Download PDF
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Paket Harga -->
+        <div class="harga-container">
+          <!-- Paket Startup -->
+          <div class="harga-card fade-in">
+            <h3 style="margin-bottom: 10px">Startup</h3>
+            <div class="harga">Rp 3.500.000</div>
+            <p class="harga-note">Harga normal: <s>Rp 4.000.000</s></p>
+
+            <ul class="fitur-list">
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Landing Page Premium
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Responsive Design
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                SEO Basic Setup
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Free Domain 1 Tahun
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Support 1 Bulan
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                5 Halaman Website
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Contact Form
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Basic Analytics
+              </li>
+            </ul>
+
+            <button
+              class="btn"
+              onclick="selectPackage('Startup', 3500000)"
+              style="width: 100%; margin-top: 20px"
+            >
+              <i class="fas fa-shopping-cart"></i> Pilih Paket Ini
+            </button>
+          </div>
+
+          <!-- Paket Bisnis (POPULAR) -->
+          <div class="harga-card popular fade-in">
+            <h3 style="margin-bottom: 10px; color: var(--accent)">
+              Bisnis Premium
+            </h3>
+            <div class="harga">Rp 12.000.000</div>
+            <p class="harga-note">Harga normal: <s>Rp 15.000.000</s></p>
+
+            <ul class="fitur-list">
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                <strong>Website E-commerce Lengkap</strong>
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Payment Gateway Integration
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                AI Chatbot 24/7
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Advanced SEO Optimization
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Free Domain & SSL 1 Tahun
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Support 6 Bulan
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Unlimited Halaman
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Analytics Dashboard
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Product Management System
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Order Tracking System
+              </li>
+            </ul>
+
+            <button
+              class="btn"
+              onclick="selectPackage('Bisnis Premium', 12000000)"
+              style="
+                width: 100%;
+                margin-top: 10px;
+                background: linear-gradient(
+                  135deg,
+                  var(--accent),
+                  var(--purple)
+                );
+              "
+            >
+              <i class="fas fa-rocket"></i> Pilih Paket Populer
+            </button>
+          </div>
+
+          <!-- Paket Enterprise -->
+          <div class="harga-card fade-in">
+            <h3 style="margin-bottom: 10px">Enterprise</h3>
+            <div class="harga">Custom</div>
+            <p class="harga-note">
+              Harga disesuaikan dengan kebutuhan spesifik
+            </p>
+
+            <ul class="fitur-list">
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                <strong>Custom System Development</strong>
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Multiple Website & Apps
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Dedicated Development Team
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Enterprise-grade Security
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Custom API Integration
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                24/7 Priority Support
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Scalable Cloud Infrastructure
+              </li>
+              <li>
+                <div class="fitur-icon"><i class="fas fa-check"></i></div>
+                Monthly Maintenance
+              </li>
+            </ul>
+
+            <button
+              class="btn"
+              onclick="selectPackage('Enterprise', 'Custom')"
+              style="width: 100%; margin-top: 20px"
+            >
+              <i class="fas fa-phone-alt"></i> Konsultasi Custom
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq">
+      <div class="container">
+        <h2 class="section-title">Pertanyaan yang Sering Ditanyakan</h2>
+        <p class="section-subtitle">
+          Temukan jawaban untuk pertanyaan umum tentang layanan kami
+        </p>
+
+        <div class="faq-container">
+          <div class="faq-item fade-in">
+            <button class="faq-question">
+              Berapa lama waktu pengerjaan website?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Waktu pengerjaan bervariasi tergantung kompleksitas proyek:</p>
+              <ul style="margin-top: 10px; padding-left: 20px">
+                <li>Startup: 7-14 hari kerja</li>
+                <li>Bisnis: 21-30 hari kerja</li>
+                <li>Enterprise: sesuai kompleksitas (biasanya 1-3 bulan)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item fade-in">
+            <button class="faq-question">
+              Apakah saya bisa request revisi?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>Ya! Setiap paket dilengkapi dengan jatah revisi:</p>
+              <ul style="margin-top: 10px; padding-left: 20px">
+                <li>Startup: 3x revisi minor</li>
+                <li>Bisnis: Unlimited revisi selama 30 hari</li>
+                <li>Enterprise: Unlimited revisi selama masa kontrak</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item fade-in">
+            <button class="faq-question">
+              Bagaimana dengan biaya maintenance?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Biaya maintenance tahunan mulai dari Rp 500.000/tahun tergantung
+                paket:
+              </p>
+              <ul style="margin-top: 10px; padding-left: 20px">
+                <li>Domain renewal: ~Rp 150.000/tahun</li>
+                <li>Hosting: mulai dari Rp 300.000/tahun</li>
+                <li>SSL certificate: ~Rp 200.000/tahun</li>
+                <li>Technical support: sesuai paket</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item fade-in">
+            <button class="faq-question">
+              Apakah website bisa dioptimasi untuk SEO?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Tentu! Semua website kami sudah dioptimasi untuk SEO dasar.
+                Untuk optimasi lanjutan, kami menawarkan:
+              </p>
+              <ul style="margin-top: 10px; padding-left: 20px">
+                <li>SEO On-page optimization</li>
+                <li>Struktur URL yang SEO-friendly</li>
+                <li>Meta tags optimization</li>
+                <li>Mobile-first indexing</li>
+                <li>Page speed optimization</li>
+                <li>Schema markup implementation</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="faq-item fade-in">
+            <button class="faq-question">
+              Apakah website bisa diintegrasikan dengan platform lain?
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Ya! Kami sudah berpengalaman mengintegrasikan dengan berbagai
+                platform:
+              </p>
+              <ul style="margin-top: 10px; padding-left: 20px">
+                <li>Payment gateway: Midtrans, Xendit, Doku, dll</li>
+                <li>Marketplace: Tokopedia, Shopee, Bukalapak API</li>
+                <li>Shipping: JNE, J&T, GoSend, GrabExpress</li>
+                <li>Email marketing: Mailchimp, SendGrid</li>
+                <li>CRM: HubSpot, Salesforce</li>
+                <li>Analytics: Google Analytics, Facebook Pixel</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Demo Website Preview -->
+    <section id="demo">
+      <div class="container">
+        <h2 class="section-title">Demo Website</h2>
+        <p class="section-subtitle">
+          Lihat preview website yang sudah kami buat
+        </p>
+
+        <div class="demo-container fade-in">
+          <div class="demo-header">
+            <div class="demo-dot red"></div>
+            <div class="demo-dot yellow"></div>
+            <div class="demo-dot green"></div>
+            <div
+              style="margin-left: 15px; font-size: 0.9rem; color: var(--muted)"
+            >
+              https://demo.hiddenweb.id
+            </div>
+          </div>
+          <iframe
+            src="https://demo.hiddenweb.id"
+            class="demo-frame"
+            title="Demo Website Hidden Web"
+          ></iframe>
+        </div>
+
+        <div style="text-align: center; margin-top: 40px">
+          <button
+            class="btn"
+            onclick="requestFullDemo()"
+            style="padding: 15px 40px"
+          >
+            <i class="fas fa-external-link-alt"></i> Request Full Demo Access
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section style="padding: 80px 20px; text-align: center">
+      <div class="container">
+        <h2 class="section-title">Siap Membangun Website Impian Anda?</h2>
+        <p class="section-subtitle" style="margin-bottom: 50px">
+          Hubungi kami sekarang untuk konsultasi gratis dan dapatkan mockup
+          website senilai Rp 500.000!
+        </p>
+
+        <div
+          style="
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+          "
+        >
+          <a
+            href="https://wa.me/6285273788038"
+            class="btn"
+            target="_blank"
+            style="padding: 18px 40px; font-size: 1.1rem"
+          >
+            <i class="fab fa-whatsapp"></i> WhatsApp Sekarang
+          </a>
+          <a
+            href="tel:+6285273788038"
+            class="btn btn-secondary"
+            style="padding: 18px 40px; font-size: 1.1rem"
+          >
+            <i class="fas fa-phone"></i> Telepon Kami
+          </a>
+          <button
+            class="btn"
+            onclick="toggleChat()"
+            style="
+              padding: 18px 40px;
+              font-size: 1.1rem;
+              background: linear-gradient(135deg, var(--purple), var(--pink));
+            "
+          >
+            <i class="fas fa-robot"></i> Tanya AI Assistant
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- WhatsApp Button -->
+    <a
+      href="https://wa.me/6285273788038"
+      class="whatsapp-btn"
+      target="_blank"
+      title="Chat via WhatsApp"
+    >
+      <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- AI Chat Widget -->
+    <div id="chat-widget">
+      <div class="chat-header">
+        <div style="display: flex; align-items: center; gap: 10px">
+          <div
+            style="
+              width: 40px;
+              height: 40px;
+              background: linear-gradient(135deg, var(--accent), var(--purple));
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              font-size: 1.2rem;
+            "
+          >
+            <i class="fas fa-robot"></i>
+          </div>
+          <div>
+            <h4 style="color: var(--accent)">AI Assistant Hidden Web</h4>
+            <p style="font-size: 0.8rem; color: var(--muted)">
+              Online • Siap membantu
+            </p>
+          </div>
+        </div>
+        <button
+          onclick="closeChat()"
+          style="
+            background: none;
+            border: none;
+            color: var(--text);
+            cursor: pointer;
+            font-size: 1.5rem;
+          "
+        >
+          ×
+        </button>
+      </div>
+
+      <div id="chat-messages">
+        <div class="bot-msg">
+          <p>Halo! 👋 Saya AI Assistant Hidden Web.</p>
+          <p>Ada yang bisa saya bantu tentang website atau layanan kami?</p>
+          <p style="margin-top: 10px; font-size: 0.9rem">
+            Coba tanya: "harga", "portfolio", "waktu pengerjaan", atau "garansi"
+          </p>
+        </div>
+      </div>
+
+      <div
+        style="padding: 20px; border-top: 1px solid rgba(255, 255, 255, 0.1)"
+      >
+        <div style="display: flex; gap: 10px">
+          <input
+            type="text"
+            id="chat-input"
+            placeholder="Ketik pertanyaan Anda..."
+            class="calc-input"
+            style="flex: 1"
+            onkeypress="if (event.key === 'Enter') sendMessage();"
+          />
+          <button
+            onclick="sendMessage()"
+            class="btn"
+            style="padding: 12px 20px"
+          >
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </div>
+        <div
+          style="display: flex; gap: 10px; margin-top: 10px; flex-wrap: wrap"
+        >
+          <button
+            onclick="quickQuestion('Berapa harga website ecommerce?')"
+            class="btn"
+            style="
+              padding: 8px 15px;
+              font-size: 0.9rem;
+              background: rgba(0, 255, 204, 0.1);
+              color: var(--accent);
+              border: 1px solid var(--accent);
+            "
+          >
+            Harga
+          </button>
+          <button
+            onclick="quickQuestion('Berapa lama waktu pengerjaan?')"
+            class="btn"
+            style="
+              padding: 8px 15px;
+              font-size: 0.9rem;
+              background: rgba(0, 255, 204, 0.1);
+              color: var(--accent);
+              border: 1px solid var(--accent);
+            "
+          >
+            Waktu
+          </button>
+          <button
+            onclick="quickQuestion('Ada garansi?')"
+            class="btn"
+            style="
+              padding: 8px 15px;
+              font-size: 0.9rem;
+              background: rgba(0, 255, 204, 0.1);
+              color: var(--accent);
+              border: 1px solid var(--accent);
+            "
+          >
+            Garansi
+          </button>
+          <button
+            onclick="quickQuestion('Bisa lihat portfolio?')"
+            class="btn"
+            style="
+              padding: 8px 15px;
+              font-size: 0.9rem;
+              background: rgba(0, 255, 204, 0.1);
+              color: var(--accent);
+              border: 1px solid var(--accent);
+            "
+          >
+            Portfolio
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Toggle Button -->
+    <button
+      onclick="toggleChat()"
+      class="whatsapp-btn"
+      style="
+        bottom: 110px;
+        left: 30px;
+        background: linear-gradient(135deg, var(--purple), var(--pink));
+      "
+    >
+      <i class="fas fa-robot"></i>
+    </button>
+
+    <!-- Social Proof Notification -->
+    <div id="social-proof">
+      <!-- Dynamic content will be inserted here by JavaScript -->
+    </div>
+
+    <!-- Exit-Intent Popup -->
+    <div id="exit-popup">
+      <div class="popup-content">
+        <button
+          onclick="closePopup()"
+          style="
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+          "
+        >
+          <i class="fas fa-times"></i>
+        </button>
+
+        <h3
+          style="color: var(--accent); margin-bottom: 20px; font-size: 1.8rem"
+        >
+          <i class="fas fa-gift"></i> TUNGGU DULU!
+        </h3>
+        <p style="font-size: 1.2rem; margin-bottom: 25px">
+          Dapatkan <strong>Konsultasi GRATIS</strong> +
+          <strong>Mockup Website</strong> senilai Rp 500.000!
+        </p>
+
+        <div style="margin: 30px 0">
+          <input
+            type="text"
+            id="popup-name"
+            placeholder="Nama Lengkap"
+            class="calc-input"
+            style="margin-bottom: 15px"
+          />
+          <input
+            type="email"
+            id="popup-email"
+            placeholder="Email Anda"
+            class="calc-input"
+            style="margin-bottom: 15px"
+          />
+          <input
+            type="tel"
+            id="popup-phone"
+            placeholder="Nomor WhatsApp"
+            class="calc-input"
+          />
+        </div>
+
+        <button
+          class="btn"
+          onclick="submitLead()"
+          style="
+            width: 100%;
+            padding: 18px;
+            font-size: 1.1rem;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+          "
+        >
+          <i class="fas fa-gift"></i> DAPATKAN GRATISNYA!
+        </button>
+
+        <p style="font-size: 0.9rem; color: var(--muted); margin-top: 25px">
+          <i class="fas fa-clock"></i> Penawaran terbatas untuk 50 orang pertama
+        </p>
+      </div>
+    </div>
+
+    <script>
+      // ==================== PWA FUNCTIONALITY ====================
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          navigator.serviceWorker
+            .register("/sw.js")
+            .then((registration) => {
+              console.log("ServiceWorker registered: ", registration);
+            })
+            .catch((error) => {
+              console.log("ServiceWorker registration failed: ", error);
+            });
+        });
+      }
+
+      // Prompt for install
+      let deferredPrompt;
+      window.addEventListener("beforeinstallprompt", (e) => {
+        e.preventDefault();
+        deferredPrompt = e;
+        showInstallPrompt();
+      });
+
+      function showInstallPrompt() {
+        const installPrompt = document.createElement("div");
+        installPrompt.innerHTML = `
+        <div style="position:fixed; bottom:20px; left:20px; right:20px; background:linear-gradient(135deg, var(--accent), var(--purple)); color:#000; padding:15px; border-radius:15px; z-index:1003; display:flex; justify-content:space-between; align-items:center; box-shadow:0 5px 20px rgba(0,0,0,0.3);">
+          <div>
+            <strong><i class="fas fa-download"></i> Install Hidden Web App</strong>
+            <p style="margin:5px 0 0; font-size:0.9rem;">Akses lebih cepat, bekerja offline</p>
+          </div>
+          <div style="display:flex; gap:10px;">
+            <button onclick="installApp()" style="background:#000; color:white; border:none; padding:8px 15px; border-radius:8px; cursor:pointer;">Install</button>
+            <button onclick="this.parentElement.parentElement.remove()" style="background:transparent; color:#000; border:none; font-size:1.2rem; cursor:pointer;">×</button>
+          </div>
+        </div>
+      `;
+        document.body.appendChild(installPrompt);
+      }
+
+      async function installApp() {
+        if (deferredPrompt) {
+          deferredPrompt.prompt();
+          const { outcome } = await deferredPrompt.userChoice;
+          console.log(`User response to the install prompt: ${outcome}`);
+          deferredPrompt = null;
+        }
+      }
+
+      // ==================== THEME TOGGLE ====================
+      const themeToggle = document.getElementById("theme-toggle");
+      const themeIcon = themeToggle.querySelector("i");
+
+      themeToggle.addEventListener("click", () => {
+        document.body.classList.toggle("light-mode");
+
+        if (document.body.classList.contains("light-mode")) {
+          themeIcon.className = "fas fa-sun";
+          localStorage.setItem("theme", "light");
+        } else {
+          themeIcon.className = "fas fa-moon";
+          localStorage.setItem("theme", "dark");
+        }
+      });
+
+      // Load saved theme
+      const savedTheme = localStorage.getItem("theme");
+      if (savedTheme === "light") {
+        document.body.classList.add("light-mode");
+        themeIcon.className = "fas fa-sun";
+      }
+
+      // ==================== ANIMASI COUNTER STATS ====================
+      function animateCounter(element, target, duration = 2000) {
+        const start = 0;
+        const increment = target / (duration / 16);
+        let current = start;
+
+        const timer = setInterval(() => {
+          current += increment;
+          if (current >= target) {
+            element.textContent =
+              target.toLocaleString() + (target === 24 ? "/7" : "");
+            clearInterval(timer);
+          } else {
+            element.textContent = Math.floor(current).toLocaleString();
+          }
+        }, 16);
+      }
+
+      // ==================== PARTICLE BACKGROUND ====================
+      function createParticles() {
+        const container = document.getElementById("particles");
+        if (!container) return;
+
+        container.innerHTML = "";
+
+        for (let i = 0; i < 50; i++) {
+          const particle = document.createElement("div");
+          particle.classList.add("particle");
+
+          const size = Math.random() * 4 + 1;
+          particle.style.width = `${size}px`;
+          particle.style.height = `${size}px`;
+          particle.style.left = `${Math.random() * 100}%`;
+          particle.style.top = `${Math.random() * 100}%`;
+
+          const colors = [
+            "var(--accent)",
+            "var(--purple)",
+            "var(--cyan)",
+            "var(--pink)",
+          ];
+          particle.style.background =
+            colors[Math.floor(Math.random() * colors.length)];
+
+          particle.style.animationDelay = `${Math.random() * 15}s`;
+          particle.style.animationDuration = `${15 + Math.random() * 10}s`;
+
+          container.appendChild(particle);
+        }
+      }
+
+      // ==================== SCROLL ANIMATIONS ====================
+      function initAnimations() {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add("visible");
+
+                // Animate progress circles
+                if (
+                  entry.target.classList.contains("progress-circle-wrapper")
+                ) {
+                  animateProgressCircles();
+                }
+
+                // Animate stats
+                if (entry.target.classList.contains("stat-card")) {
+                  const statNumber = entry.target.querySelector(".stat-number");
+                  const target = parseInt(
+                    statNumber.getAttribute("data-target"),
+                  );
+                  animateCounter(statNumber, target);
+                }
+              }
+            });
+          },
+          { threshold: 0.1 },
+        );
+
+        document
+          .querySelectorAll(".fade-in")
+          .forEach((el) => observer.observe(el));
+
+        // Animate progress circles on page load if visible
+        document.querySelectorAll(".progress-circle-fill").forEach((circle) => {
+          const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                animateProgressCircles();
+                observer.unobserve(circle);
+              }
+            });
+          });
+          observer.observe(circle);
+        });
+      }
+
+      // ==================== PROGRESS CIRCLES ====================
+      function animateProgressCircles() {
+        document.querySelectorAll(".progress-circle-fill").forEach((circle) => {
+          const percent = circle.getAttribute("data-percent");
+          const radius = 54;
+          const circumference = 2 * Math.PI * radius;
+          const offset = circumference - (percent / 100) * circumference;
+
+          setTimeout(() => {
+            circle.style.strokeDashoffset = offset;
+          }, 100);
+        });
+      }
+
+      // ==================== AI CHAT WIDGET ====================
+      const chatAI = {
+        greetings: [
+          "Halo! 👋 Saya AI Assistant Hidden Web.",
+          "Ada yang bisa saya bantu tentang website atau layanan kami?",
+        ],
+        responses: {
+          harga:
+            "Kami punya 3 paket utama:\n\n🚀 Startup: Rp 3.5jt\n⭐ Bisnis Premium: Rp 12jt (Paling Populer)\n🏢 Enterprise: Custom (sesuai kebutuhan)\n\nPaket mana yang ingin Anda ketahui lebih detail?",
+          portfolio:
+            "Lihat bagian 'Bukti Nyata Klien' untuk contoh website kami! Kami sudah menyelesaikan 150+ proyek sukses untuk berbagai industri di Indonesia.",
+          waktu:
+            "⏱️ Waktu pengerjaan:\n\n• Startup: 7-14 hari kerja\n• Bisnis: 21-30 hari kerja\n• Enterprise: sesuai kompleksitas (biasanya 1-3 bulan)\n\nBisa juga expedite dengan tambahan biaya.",
+          garansi:
+            "✅ Garansi 30 hari revisi gratis\n✅ Support 24/7 via WhatsApp\n✅ Hosting & domain 1 tahun gratis\n✅ Backup data rutin\n✅ Security monitoring",
+          pembayaran:
+            "💳 Skema pembayaran:\n\n• DP 50% di awal\n• 50% setelah website siap\n• Bisa transfer bank, QRIS, atau COD untuk area tertentu\n• Juga tersedia cicilan 3, 6, atau 12 bulan",
+          kontak:
+            "📞 Hubungi kami:\n\n• WhatsApp: 0852-7378-8038\n• Telepon: 0852-7378-8038\n• Email: hello@hiddenweb.id\n• Instagram: @hiddenweb.id",
+          seo: "🔍 Semua website kami sudah dioptimasi untuk SEO dasar:\n\n• Mobile-first design\n• Page speed optimization\n• SEO-friendly URLs\n• Meta tags optimization\n• Schema markup\n• Sitemap.xml\n\nUntuk advanced SEO, tambahan Rp 600rb",
+          revisi:
+            "🔄 Jatah revisi:\n\n• Startup: 3x revisi minor\n• Bisnis: Unlimited revisi selama 30 hari\n• Enterprise: Unlimited revisi selama masa kontrak\n\nSetelah itu, revisi dikenakan biaya Rp 150rb/jam",
+          maintenance:
+            "🛠️ Biaya maintenance tahunan:\n\n• Domain: ~Rp 150rb/tahun\n• Hosting: mulai Rp 300rb/tahun\n• SSL: ~Rp 200rb/tahun\n• Technical support: sesuai paket\n\nPaket maintenance lengkap mulai Rp 500rb/tahun",
+        },
+        default:
+          "Maaf, saya belum paham pertanyaan itu. 😅\n\nCoba tanya tentang:\n• Harga paket website\n• Waktu pengerjaan\n• Garansi & support\n• Portfolio kami\n• Atau langsung chat WhatsApp kami di 0852-7378-8038",
+      };
+
+      function toggleChat() {
+        const chat = document.getElementById("chat-widget");
+        chat.style.display = chat.style.display === "flex" ? "none" : "flex";
+      }
+
+      function closeChat() {
+        document.getElementById("chat-widget").style.display = "none";
+      }
+
+      function quickQuestion(question) {
+        document.getElementById("chat-input").value = question;
+        sendMessage();
+      }
+
+      function sendMessage() {
+        const input = document.getElementById("chat-input");
+        const messages = document.getElementById("chat-messages");
+
+        if (!input.value.trim()) return;
+
+        // User message
+        messages.innerHTML += `<div class="user-msg">${input.value}</div>`;
+
+        // Bot response
+        let response = chatAI.default;
+        const lowerInput = input.value.toLowerCase();
+
+        for (const [key, value] of Object.entries(chatAI.responses)) {
+          if (lowerInput.includes(key)) {
+            response = value;
+            break;
+          }
+        }
+
+        if (
+          lowerInput.includes("hai") ||
+          lowerInput.includes("halo") ||
+          lowerInput.includes("hello")
+        ) {
+          response = chatAI.greetings.join("\n\n");
+        }
+
+        setTimeout(() => {
+<<<<<<< HEAD
+          messages.innerHTML += `<div class="bot-msg">${response.replace(/\n/g, "<br>")}</div>`;
+          messages.scrollTop = messages.scrollHeight;
+        }, 500);
+
+        input.value = "";
+      }
+
+      // ==================== KALKULATOR HARGA ====================
+      const basePrices = {
+        landing: 2500000,
+        company: 4500000,
+        ecommerce: 10000000,
+        custom: 15000000,
+      };
+
+      const timelineMultiplier = {
+        normal: 1,
+        fast: 1.2,
+        urgent: 1.5,
+      };
+
+      function updatePrice() {
+        const type = document.getElementById("website-type").value;
+        const pages = parseInt(document.getElementById("page-count").value);
+        const timeline = document.getElementById("timeline").value;
+
+        let total = basePrices[type] || 10000000;
+
+        // Tambah harga per halaman (setelah 5 halaman)
+        if (pages > 5) {
+          total += (pages - 5) * 300000;
+=======
+          circle.style.strokeDashoffset = offset;
+        }, 100);
+      });
+    }
+    
+    // ==================== AI CHAT WIDGET ====================
+    const chatAI = {
+      greetings: ["Halo! 👋 Saya AI Assistant Hidden Web.", "Ada yang bisa saya bantu tentang website atau layanan kami?"],
+      responses: {
+        "harga": "Kami punya 3 paket utama:\n\n🚀 Startup: Rp 3.5jt\n⭐ Bisnis Premium: Rp 12jt (Paling Populer)\n🏢 Enterprise: Custom (sesuai kebutuhan)\n\nPaket mana yang ingin Anda ketahui lebih detail?",
+        "portfolio": "Lihat bagian 'Bukti Nyata Klien' untuk contoh website kami! Kami sudah menyelesaikan 150+ proyek sukses untuk berbagai industri di Indonesia.",
+        "waktu": "⏱️ Waktu pengerjaan:\n\n• Startup: 7-14 hari kerja\n• Bisnis: 21-30 hari kerja\n• Enterprise: sesuai kompleksitas (biasanya 1-3 bulan)\n\nBisa juga expedite dengan tambahan biaya.",
+        "garansi": "✅ Garansi 30 hari revisi gratis\n✅ Support 24/7 via WhatsApp\n✅ Hosting & domain 1 tahun gratis\n✅ Backup data rutin\n✅ Security monitoring",
+        "pembayaran": "💳 Skema pembayaran:\n\n• DP 50% di awal\n• 50% setelah website siap\n• Bisa transfer bank, QRIS, atau COD untuk area tertentu\n• Juga tersedia cicilan 3, 6, atau 12 bulan",
+        "kontak": "📞 Hubungi kami:\n\n• WhatsApp: 0852-7378-8038\n• Telepon: 0852-7378-8038\n• Email: hello@hiddenweb.id\n• Instagram: @hiddenweb.id",
+        "seo": "🔍 Semua website kami sudah dioptimasi untuk SEO dasar:\n\n• Mobile-first design\n• Page speed optimization\n• SEO-friendly URLs\n• Meta tags optimization\n• Schema markup\n• Sitemap.xml\n\nUntuk advanced SEO, tambahan Rp 600rb",
+        "revisi": "🔄 Jatah revisi:\n\n• Startup: 3x revisi minor\n• Bisnis: Unlimited revisi selama 30 hari\n• Enterprise: Unlimited revisi selama masa kontrak\n\nSetelah itu, revisi dikenakan biaya Rp 150rb/jam",
+        "maintenance": "🛠️ Biaya maintenance tahunan:\n\n• Domain: ~Rp 150rb/tahun\n• Hosting: mulai Rp 300rb/tahun\n• SSL: ~Rp 200rb/tahun\n• Technical support: sesuai paket\n\nPaket maintenance lengkap mulai Rp 500rb/tahun"
+      },
+      default: "Maaf, saya belum paham pertanyaan itu. 😅\n\nCoba tanya tentang:\n• Harga paket website\n• Waktu pengerjaan\n• Garansi & support\n• Portfolio kami\n• Atau langsung chat WhatsApp kami di 0852-7378-8038"
+    };
+    
+    function toggleChat() {
+      const chat = document.getElementById('chat-widget');
+      chat.style.display = chat.style.display === 'flex' ? 'none' : 'flex';
+    }
+    
+    function closeChat() {
+      document.getElementById('chat-widget').style.display = 'none';
+    }
+    
+    function quickQuestion(question) {
+      document.getElementById('chat-input').value = question;
+      sendMessage();
+    }
+    
+    function sendMessage() {
+      const input = document.getElementById('chat-input');
+      const messages = document.getElementById('chat-messages');
+      
+      if (!input.value.trim()) return;
+
+      const regex = /img/
+      
+      if(regex.test(input.value)){
+        alert("pesan anda telah difilter")
+      }
+      
+      // User message
+      messages.innerHTML += `<div class="user-msg">${input.value}</div>`;
+      
+      // Bot response
+      let response = chatAI.default;
+      const lowerInput = input.value.toLowerCase();
+      
+      for (const [key, value] of Object.entries(chatAI.responses)) {
+        if (lowerInput.includes(key)) {
+          response = value;
+          break;
+>>>>>>> 3ba796420f4fdf8e78c9ae38c37d38ec497319ec
+        }
+
+        // Fitur tambahan
+        document
+          .querySelectorAll(".feature-checkbox input:checked")
+          .forEach((cb) => {
+            total += parseInt(cb.value);
+          });
+
+        // Timeline multiplier
+        total *= timelineMultiplier[timeline];
+
+        // Update display
+        document.getElementById("total-price").textContent =
+          formatRupiah(total);
+
+        // Update payment calculator
+        document.getElementById("payment-base-price").textContent =
+          formatRupiah(total);
+        updatePaymentCalculator(total);
+      }
+
+      function formatRupiah(amount) {
+        return "Rp " + Math.round(amount).toLocaleString("id-ID");
+      }
+
+      function orderCustom() {
+        const total = document.getElementById("total-price").textContent;
+        const message = `Halo, saya ingin pesan website dengan estimasi harga ${total} dari kalkulator. Bisa konsultasi?`;
+        window.open(
+          `https://wa.me/6285273788038?text=${encodeURIComponent(message)}`,
+          "_blank",
+        );
+      }
+
+      // ==================== PAYMENT CALCULATOR ====================
+      let selectedPaymentOption = null;
+      let basePrice = 10000000;
+
+      function selectPaymentOption(element) {
+        document.querySelectorAll(".payment-option").forEach((opt) => {
+          opt.classList.remove("selected");
+        });
+
+        element.classList.add("selected");
+        selectedPaymentOption = element;
+
+        updatePaymentSummary();
+      }
+
+      function updatePaymentCalculator(newBasePrice) {
+        basePrice = newBasePrice;
+
+        // Update all payment options
+        document.querySelectorAll(".payment-option").forEach((opt) => {
+          const months = parseInt(opt.getAttribute("data-months"));
+          const interest = parseInt(opt.getAttribute("data-interest")) / 100;
+
+          if (months === 1) {
+            opt.querySelector("div").textContent = formatRupiah(basePrice);
+          } else {
+            const total = basePrice * (1 + interest);
+            const monthly = total / months;
+            opt.querySelector("div").textContent =
+              formatRupiah(monthly) + "/bln";
+            opt.querySelector("p:nth-child(3)").textContent =
+              `Total: ${formatRupiah(total)}`;
+          }
+        });
+
+        if (selectedPaymentOption) {
+          updatePaymentSummary();
+        }
+      }
+
+      function updatePaymentSummary() {
+        if (!selectedPaymentOption) return;
+
+        const months = parseInt(
+          selectedPaymentOption.getAttribute("data-months"),
+        );
+        const interest =
+          parseInt(selectedPaymentOption.getAttribute("data-interest")) / 100;
+
+        let total = basePrice * (1 + interest);
+        let dp = months === 1 ? total : total * 0.5;
+        let installment = months === 1 ? 0 : (total - dp) / (months - 1);
+
+        document.getElementById("dp-amount").textContent = formatRupiah(dp);
+        document.getElementById("installment-amount").textContent =
+          formatRupiah(installment);
+        document.getElementById("total-payment").textContent =
+          formatRupiah(total);
+      }
+
+      function applyPaymentPlan() {
+        if (!selectedPaymentOption) {
+          alert("Pilih opsi pembayaran terlebih dahulu!");
+          return;
+        }
+
+        const months = parseInt(
+          selectedPaymentOption.getAttribute("data-months"),
+        );
+        const dp = document.getElementById("dp-amount").textContent;
+        const installment =
+          document.getElementById("installment-amount").textContent;
+        const total = document.getElementById("total-payment").textContent;
+
+        const message = `Halo, saya ingin mengajukan pembayaran cicilan untuk website:\n\n• DP: ${dp}\n• Cicilan: ${installment}/buln (${months} bulan)\n• Total: ${total}\n\nBisa dibantu?`;
+        window.open(
+          `https://wa.me/6285273788038?text=${encodeURIComponent(message)}`,
+          "_blank",
+        );
+      }
+
+      // ==================== RATING SYSTEM ====================
+      let userRating = 0;
+
+      function rateStar(stars) {
+        userRating = stars;
+
+        const starElements = document.querySelectorAll("#rating-input span i");
+        starElements.forEach((star, index) => {
+          if (index < stars) {
+            star.className = "fas fa-star";
+            star.parentElement.classList.add("active");
+          } else {
+            star.className = "far fa-star";
+            star.parentElement.classList.remove("active");
+          }
+        });
+      }
+
+      function submitReview() {
+        if (userRating === 0) {
+          alert("Beri rating dulu ya! ⭐");
+          return;
+        }
+
+        const text = document.getElementById("review-text").value;
+        if (!text.trim()) {
+          alert("Tulis ulasan Anda terlebih dahulu");
+          return;
+        }
+
+        // Simpan ke localStorage (untuk demo)
+        const review = {
+          rating: userRating,
+          text: text,
+          date: new Date().toLocaleDateString("id-ID"),
+          name: "Pengguna Baru",
+        };
+
+        let reviews = JSON.parse(
+          localStorage.getItem("hiddenweb_reviews") || "[]",
+        );
+        reviews.unshift(review);
+        localStorage.setItem("hiddenweb_reviews", JSON.stringify(reviews));
+
+        alert(
+          "🎉 Terima kasih! Ulasan Anda berhasil dikirim dan akan tampil setelah moderasi.",
+        );
+        document.getElementById("review-text").value = "";
+        rateStar(0);
+
+        // Update rating display (demo)
+        updateRatingDisplay();
+      }
+
+      function updateRatingDisplay() {
+        // In a real app, this would fetch from server
+        // For demo, we'll just show some animation
+        const ratingValue = document.querySelector(".live-rating .star-rating");
+        if (ratingValue) {
+          ratingValue.innerHTML = '<i class="fas fa-star"></i>'.repeat(5);
+        }
+      }
+
+      // ==================== COUNTDOWN TIMER ====================
+      function updateCountdown() {
+        const endDate = new Date();
+        endDate.setDate(endDate.getDate() + 5); // 5 hari dari sekarang
+        endDate.setHours(23, 59, 59, 0);
+
+        const now = new Date();
+        const diff = endDate - now;
+
+        if (diff > 0) {
+          const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+          const hours = Math.floor(
+            (diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60),
+          );
+          const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+          const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+
+          document.getElementById("countdown-days").textContent = days
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("countdown-hours").textContent = hours
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("countdown-minutes").textContent = minutes
+            .toString()
+            .padStart(2, "0");
+          document.getElementById("countdown-seconds").textContent = seconds
+            .toString()
+            .padStart(2, "0");
+        } else {
+          document.querySelector(".promo-timer").innerHTML = `
+          <h3 style="margin-bottom: 15px;"><i class="fas fa-clock"></i> PROMO TELAH BERAKHIR!</h3>
+          <p style="font-size: 1.2rem;">Promo telah berakhir, tapi Anda masih bisa mendapatkan penawaran spesial!</p>
+          <a href="https://wa.me/6285273788038" class="btn" style="margin-top: 20px;">
+            <i class="fas fa-bolt"></i> Dapatkan Penawaran Spesial
+          </a>
+        `;
+        }
+      }
+
+      // ==================== PORTFOLIO SLIDER ====================
+      let currentSlide = 0;
+      const slides = document.querySelectorAll(".portfolio-slide");
+      const dots = document.querySelectorAll(".slide-dot");
+
+      function showSlide(n) {
+        currentSlide = (n + slides.length) % slides.length;
+        document.getElementById("slides-container").style.transform =
+          `translateX(-${currentSlide * 100}%)`;
+
+        dots.forEach((dot, i) => {
+          dot.classList.toggle("active", i === currentSlide);
+        });
+      }
+
+      function nextSlide() {
+        showSlide(currentSlide + 1);
+      }
+
+      function prevSlide() {
+        showSlide(currentSlide - 1);
+      }
+
+      function goToSlide(n) {
+        showSlide(n);
+      }
+
+      // Auto slide
+      let slideInterval = setInterval(nextSlide, 8000);
+
+      function resetSlideInterval() {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(nextSlide, 8000);
+      }
+
+      // ==================== MEDIA KIT DOWNLOAD ====================
+      function downloadMediaKit(type) {
+        const files = {
+          profile: "HiddenWeb_Company_Profile.pdf",
+          pricelist: "HiddenWeb_Price_List.pdf",
+          portfolio: "HiddenWeb_Portfolio_Book.pdf",
+        };
+
+        const message = `Saya ingin download ${files[type]} dari website Hidden Web`;
+
+        // In real implementation, you would link to actual PDF files
+        // For now, we'll open WhatsApp for request
+        window.open(
+          `https://wa.me/6285273788038?text=${encodeURIComponent(message)}`,
+          "_blank",
+        );
+
+        // Demo alert
+        alert(
+          `Untuk download ${files[type]}, tim kami akan mengirimkan file via WhatsApp.`,
+        );
+      }
+
+      // ==================== FAQ ACCORDION ====================
+      function initFAQ() {
+        document.querySelectorAll(".faq-question").forEach((button) => {
+          button.addEventListener("click", () => {
+            const item = button.parentElement;
+            item.classList.toggle("active");
+          });
+        });
+      }
+
+      // ==================== DEMO REQUEST ====================
+      function requestFullDemo() {
+        const message = `Halo, saya ingin request full demo access untuk melihat contoh website yang sudah dibuat Hidden Web.`;
+        window.open(
+          `https://wa.me/6285273788038?text=${encodeURIComponent(message)}`,
+          "_blank",
+        );
+      }
+
+      // ==================== PACKAGE SELECTION ====================
+      function selectPackage(packageName, price) {
+        const message = `Halo, saya tertarik dengan paket ${packageName} ${typeof price === "number" ? "seharga " + formatRupiah(price) : price}. Bisa info lebih detail?`;
+        window.open(
+          `https://wa.me/6285273788038?text=${encodeURIComponent(message)}`,
+          "_blank",
+        );
+      }
+
+      // ==================== SOCIAL PROOF NOTIFICATION ====================
+      const notifications = [
+        {
+          icon: "🛒",
+          text: "Rudi dari Bandung baru saja memesan paket Startup",
+          time: "2 menit lalu",
+        },
+        {
+          icon: "🚀",
+          text: "PT Sejahtera Abadi memilih paket Enterprise",
+          time: "15 menit lalu",
+        },
+        {
+          icon: "⭐",
+          text: "Sarah memberi rating 5 bintang untuk website ecommerce",
+          time: "1 jam lalu",
+        },
+        {
+          icon: "📈",
+          text: "5 klien upgrade dari Startup ke Bisnis Premium",
+          time: "3 jam lalu",
+        },
+        {
+          icon: "🎉",
+          text: "Website toko online baru saja launch dengan sukses!",
+          time: "5 jam lalu",
+        },
+      ];
+
+      function showSocialProof() {
+        const proof = document.getElementById("social-proof");
+        const randomNotif =
+          notifications[Math.floor(Math.random() * notifications.length)];
+
+        proof.innerHTML = `
+        <div style="display: flex; align-items: center; gap: 15px;">
+          <div style="font-size: 2rem;">${randomNotif.icon}</div>
+          <div>
+            <div style="color: var(--accent); font-weight: 600; margin-bottom: 5px;">${randomNotif.text}</div>
+            <div style="font-size: 0.8rem; color: var(--muted);">${randomNotif.time}</div>
+          </div>
+        </div>
+      `;
+
+        proof.style.display = "block";
+        setTimeout(() => {
+          proof.style.display = "none";
+        }, 8000);
+      }
+
+      // ==================== EXIT INTENT POPUP ====================
+      function closePopup() {
+        document.getElementById("exit-popup").style.display = "none";
+        localStorage.setItem("popup_shown", "true");
+      }
+
+      function submitLead() {
+        const name = document.getElementById("popup-name").value;
+        const email = document.getElementById("popup-email").value;
+        const phone = document.getElementById("popup-phone").value;
+
+        if (!name || !email || !phone) {
+          alert("Harap isi semua data!");
+          return;
+        }
+
+        const message = `Saya tertarik dengan penawaran konsultasi gratis dan mockup website!\n\nNama: ${name}\nEmail: ${email}\nWhatsApp: ${phone}`;
+        window.open(
+          `https://wa.me/6285273788038?text=${encodeURIComponent(message)}`,
+          "_blank",
+        );
+        closePopup();
+      }
+
+      function detectExitIntent() {
+        let mouseY = 0;
+
+        document.addEventListener("mouseout", function (e) {
+          if (e.clientY < 10 && !localStorage.getItem("popup_shown")) {
+            setTimeout(() => {
+              document.getElementById("exit-popup").style.display = "flex";
+            }, 500);
+          }
+        });
+
+        // Also show popup when user tries to leave page
+        window.addEventListener("beforeunload", function (e) {
+          if (!localStorage.getItem("popup_shown")) {
+            document.getElementById("exit-popup").style.display = "flex";
+            return "Tunggu dulu! Dapatkan penawaran spesial sebelum Anda pergi.";
+          }
+        });
+      }
+
+<<<<<<< HEAD
+      // ==================== SMOOTH SCROLL ====================
+      function initSmoothScroll() {
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            if (targetId === "#") return;
+
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+              window.scrollTo({
+                top: targetElement.offsetTop - 80,
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      }
+
+      // ==================== MEGA DROPDOWN MENU ====================
+      function initMegaDropdown() {
+        const dropdown = document.getElementById("products-dropdown");
+        const trigger = document.getElementById("products-trigger");
+        const overlay = document.getElementById("dropdown-overlay");
+        if (!dropdown || !trigger || !overlay) return;
+
+        function openDropdown() {
+          dropdown.classList.add("open");
+          overlay.classList.add("show");
+        }
+
+        function closeDropdown() {
+          dropdown.classList.remove("open");
+          overlay.classList.remove("show");
+        }
+
+        trigger.addEventListener("click", function (e) {
+          e.stopPropagation();
+          dropdown.classList.contains("open")
+            ? closeDropdown()
+            : openDropdown();
+        });
+
+        overlay.addEventListener("click", closeDropdown);
+
+        document.addEventListener("click", function (e) {
+          if (!dropdown.contains(e.target)) closeDropdown();
+        });
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeDropdown();
+        });
+
+        dropdown.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", closeDropdown);
+        });
+      }
+
+      // ==================== MOBILE MENU DRAWER ====================
+      function initMobileMenu() {
+        const hamburger = document.getElementById("hamburger-btn");
+        const closeBtn = document.getElementById("mobile-menu-close");
+        const overlay = document.getElementById("mobile-menu-overlay");
+        const menu = document.getElementById("mobile-menu");
+        if (!hamburger || !menu || !overlay) return;
+
+        function openMenu() {
+          menu.classList.add("open");
+          overlay.classList.add("show");
+          hamburger.classList.add("open");
+          document.body.style.overflow = "hidden";
+        }
+
+        function closeMenu() {
+          menu.classList.remove("open");
+          overlay.classList.remove("show");
+          hamburger.classList.remove("open");
+          document.body.style.overflow = "";
+        }
+
+        hamburger.addEventListener("click", function () {
+          menu.classList.contains("open") ? closeMenu() : openMenu();
+        });
+
+        closeBtn.addEventListener("click", closeMenu);
+        overlay.addEventListener("click", closeMenu);
+
+        document.addEventListener("keydown", function (e) {
+          if (e.key === "Escape") closeMenu();
+        });
+
+        // Tutup menu saat link biasa diklik (bukan accordion trigger)
+        menu.querySelectorAll("a").forEach((link) => {
+          link.addEventListener("click", closeMenu);
+        });
+
+        // Accordion "Layanan" di dalam mobile menu
+        menu
+          .querySelectorAll(".mobile-accordion-trigger")
+          .forEach((trigger) => {
+            trigger.addEventListener("click", function () {
+              this.parentElement.classList.toggle("open");
+            });
+          });
+
+        // Sinkronkan toggle tema versi mobile dengan versi desktop
+        const themeToggleMobile = document.getElementById(
+          "theme-toggle-mobile",
+        );
+        if (themeToggleMobile) {
+          themeToggleMobile.addEventListener("click", function () {
+            document.getElementById("theme-toggle")?.click();
+            const desktopIcon = document.getElementById("theme-icon-mobile");
+            const isLight = document.body.classList.contains("light-mode");
+            desktopIcon.className = isLight ? "fas fa-sun" : "fas fa-moon";
+          });
+        }
+
+        // Tutup menu mobile otomatis jika layar melebar ke desktop
+        window.addEventListener("resize", function () {
+          if (window.innerWidth > 768) closeMenu();
+        });
+      }
+
+      // ==================== INITIALIZE EVERYTHING ====================
+      document.addEventListener("DOMContentLoaded", function () {
+        // Initialize all components
+        createParticles();
+        initMegaDropdown();
+        initMobileMenu();
+        initAnimations();
+        initSmoothScroll();
+        initFAQ();
+        detectExitIntent();
+
+        // Set up event listeners for price calculator
+        document
+          .getElementById("page-count")
+          .addEventListener("input", function () {
+            document.getElementById("page-value").textContent =
+              this.value + " halaman";
+            updatePrice();
+          });
+
+        document
+          .getElementById("website-type")
+          .addEventListener("change", updatePrice);
+        document
+          .getElementById("timeline")
+          .addEventListener("change", updatePrice);
+        document.querySelectorAll(".feature-checkbox input").forEach((cb) => {
+          cb.addEventListener("change", updatePrice);
+        });
+
+        // Initialize payment calculator
+        document.querySelector(".payment-option").click();
+
+        // Initialize countdown timer
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+
+        // Initialize portfolio slider controls
+        document
+          .querySelectorAll('.slide-dot, button[onclick*="Slide"]')
+          .forEach((element) => {
+            element.addEventListener("click", resetSlideInterval);
+          });
+
+        // Show social proof notifications
+        setTimeout(showSocialProof, 10000);
+        setInterval(showSocialProof, Math.random() * 30000 + 30000);
+
+        // Chat input enter key
+        document
+          .getElementById("chat-input")
+          ?.addEventListener("keypress", function (e) {
+            if (e.key === "Enter") {
+              sendMessage();
+            }
+          });
+      });
+
+      // Performance optimization
+      window.addEventListener("load", function () {
+        // Lazy load images
+        const images = document.querySelectorAll("img");
+        images.forEach((img) => {
+          img.loading = "lazy";
+        });
+
+        // Add loading="lazy" to iframe
+        const iframe = document.querySelector("iframe");
+        if (iframe) {
+          iframe.loading = "lazy";
+        }
+      });
+    </script>
+  </body>
+=======
+>>>>>>> 3ba796420f4fdf8e78c9ae38c37d38ec497319ec
+</html>

@@ -1,0 +1,1113 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#000814" />
+    <title>Ketentuan Layanan | Hidden Web</title>
+    <meta
+      name="description"
+      content="Ketentuan Layanan Hidden Web - syarat dan ketentuan penggunaan jasa pembuatan website premium."
+    />
+
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚀</text></svg>"
+    />
+
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+
+    <style>
+      :root {
+        --bg: #000814;
+        --text: #eaeaea;
+        --accent: #00ffcc;
+        --btn: #0066ff;
+        --glass: rgba(255, 255, 255, 0.08);
+        --muted: #a6a6a6;
+        --success: #00d084;
+        --danger: #ff6b6b;
+        --card-hover: rgba(0, 255, 204, 0.12);
+        --pink: #ff00ff;
+        --purple: #9d4edd;
+        --cyan: #00f5ff;
+        --yellow: #ffcc00;
+        --orange: #ff6b35;
+      }
+
+      .light-mode {
+        --bg: #ffffff;
+        --text: #222222;
+        --glass: rgba(0, 0, 0, 0.08);
+        --muted: #666666;
+        --card-hover: rgba(0, 255, 204, 0.08);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        height: 100%;
+      }
+
+      body {
+        font-family:
+          "Inter",
+          -apple-system,
+          BlinkMacSystemFont,
+          "Segoe UI",
+          sans-serif;
+        color: var(--text);
+        background: var(--bg);
+        overflow-x: hidden;
+        scroll-behavior: smooth;
+        transition:
+          background-color 0.3s,
+          color 0.3s;
+      }
+
+      /* Background Premium (sama seperti halaman utama) */
+      .bg-gradient {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(0, 255, 204, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(157, 78, 221, 0.1) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 40%,
+            rgba(255, 0, 255, 0.05) 0%,
+            transparent 50%
+          ),
+          linear-gradient(135deg, #000814 0%, #001d3d 50%, #000814 100%);
+        z-index: -2;
+      }
+
+      .light-mode .bg-gradient {
+        background:
+          radial-gradient(
+            circle at 20% 80%,
+            rgba(0, 255, 204, 0.05) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(157, 78, 221, 0.05) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 40%,
+            rgba(255, 0, 255, 0.02) 0%,
+            transparent 50%
+          ),
+          linear-gradient(135deg, #ffffff 0%, #f5f7fa 50%, #ffffff 100%);
+      }
+
+      .bg-particles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        overflow: hidden;
+      }
+
+      .particle {
+        position: absolute;
+        background: var(--accent);
+        border-radius: 50%;
+        animation: float 15s infinite linear;
+        opacity: 0.6;
+      }
+
+      @keyframes float {
+        0% {
+          transform: translateY(100vh) rotate(0deg);
+          opacity: 0;
+        }
+        10% {
+          opacity: 0.7;
+        }
+        90% {
+          opacity: 0.7;
+        }
+        100% {
+          transform: translateY(-100px) rotate(360deg);
+          opacity: 0;
+        }
+      }
+
+      /* Header */
+      header {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        background: rgba(0, 8, 20, 0.95);
+        backdrop-filter: blur(20px);
+        padding: 15px 30px;
+        z-index: 1000;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: all 0.3s;
+      }
+
+      .light-mode header {
+        background: rgba(255, 255, 255, 0.95);
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .logo {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-size: 1.5rem;
+        font-weight: 800;
+        background: linear-gradient(90deg, var(--accent), var(--purple));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .logo-icon {
+        width: 40px;
+        height: 40px;
+        background: linear-gradient(135deg, var(--accent), var(--purple));
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        color: white;
+        font-size: 0.95rem;
+        -webkit-text-fill-color: white;
+      }
+
+      nav {
+        display: flex;
+        gap: 30px;
+        align-items: center;
+      }
+
+      .nav-link {
+        color: var(--text);
+        text-decoration: none;
+        font-weight: 500;
+        position: relative;
+        padding: 5px 0;
+        transition: color 0.3s;
+      }
+
+      .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent);
+        transition: width 0.3s;
+      }
+
+      .nav-link:hover::after {
+        width: 100%;
+      }
+
+      .nav-link:hover {
+        color: var(--accent);
+      }
+
+      #theme-toggle {
+        background: none;
+        border: none;
+        color: var(--text);
+        font-size: 1.2rem;
+        cursor: pointer;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: background-color 0.3s;
+      }
+
+      #theme-toggle:hover {
+        background: rgba(255, 255, 255, 0.1);
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 12px 25px;
+        background: linear-gradient(135deg, var(--btn), var(--purple));
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        border: none;
+        cursor: pointer;
+        transition: all 0.3s;
+        position: relative;
+        overflow: hidden;
+        font-size: 0.95rem;
+      }
+
+      .btn::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.6s;
+      }
+
+      .btn:hover::before {
+        left: 100%;
+      }
+
+      .btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 25px rgba(0, 102, 255, 0.3);
+      }
+
+      /* Hero mini (page title) */
+      .page-hero {
+        min-height: 42vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 140px 20px 50px;
+        text-align: center;
+        position: relative;
+      }
+
+      .page-hero-content {
+        max-width: 800px;
+      }
+
+      .eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 16px;
+        border-radius: 30px;
+        background: rgba(0, 255, 204, 0.08);
+        border: 1px solid rgba(0, 255, 204, 0.3);
+        color: var(--accent);
+        font-size: 0.85rem;
+        font-weight: 600;
+        margin-bottom: 22px;
+      }
+
+      .page-title {
+        font-size: clamp(2.2rem, 5vw, 3.4rem);
+        line-height: 1.15;
+        margin-bottom: 18px;
+        background: linear-gradient(
+          90deg,
+          var(--accent),
+          var(--purple),
+          var(--cyan)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      .page-subtitle {
+        color: var(--muted);
+        font-size: 1.05rem;
+        line-height: 1.7;
+        max-width: 650px;
+        margin: 0 auto;
+      }
+
+      .last-updated {
+        margin-top: 22px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 0.85rem;
+        color: var(--muted);
+      }
+
+      .last-updated i {
+        color: var(--accent);
+      }
+
+      /* Layout */
+      .legal-wrapper {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 0 20px 100px;
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+
+      /* Table of contents */
+      .toc {
+        position: sticky;
+        top: 100px;
+        background: rgba(255, 255, 255, 0.05);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 16px;
+        padding: 25px;
+      }
+
+      .light-mode .toc {
+        background: rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .toc-title {
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--muted);
+        margin-bottom: 15px;
+        font-weight: 700;
+      }
+
+      .toc-list {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+
+      .toc-list a {
+        display: block;
+        padding: 8px 12px;
+        border-radius: 8px;
+        color: var(--muted);
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: all 0.25s;
+        border-left: 2px solid transparent;
+      }
+
+      .toc-list a:hover {
+        color: var(--accent);
+        background: rgba(0, 255, 204, 0.06);
+      }
+
+      .toc-list a.active {
+        color: var(--accent);
+        border-left: 2px solid var(--accent);
+        background: rgba(0, 255, 204, 0.08);
+        font-weight: 600;
+      }
+
+      /* Legal content card */
+      .legal-content {
+        background: rgba(255, 255, 255, 0.05);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 20px;
+        padding: 50px;
+      }
+
+      .light-mode .legal-content {
+        background: rgba(0, 0, 0, 0.03);
+        border: 1px solid rgba(0, 0, 0, 0.1);
+      }
+
+      .legal-section {
+        padding-top: 40px;
+        margin-top: 10px;
+        scroll-margin-top: 100px;
+      }
+
+      .legal-section:first-child {
+        padding-top: 0;
+        margin-top: 0;
+      }
+
+      .legal-section + .legal-section {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+      }
+
+      .light-mode .legal-section + .legal-section {
+        border-top: 1px solid rgba(0, 0, 0, 0.08);
+      }
+
+      .legal-section h2 {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        font-size: 1.4rem;
+        margin-bottom: 18px;
+        color: var(--text);
+      }
+
+      .section-number {
+        flex-shrink: 0;
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        background: rgba(0, 255, 204, 0.1);
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.9rem;
+        font-weight: 800;
+      }
+
+      .legal-section p {
+        color: var(--muted);
+        line-height: 1.8;
+        font-size: 0.98rem;
+        margin-bottom: 14px;
+      }
+
+      .legal-section ul {
+        margin: 0 0 14px 0;
+        padding-left: 0;
+        list-style: none;
+      }
+
+      .legal-section ul li {
+        display: flex;
+        align-items: flex-start;
+        gap: 12px;
+        color: var(--muted);
+        line-height: 1.7;
+        font-size: 0.98rem;
+        margin: 10px 0;
+      }
+
+      .legal-section ul li i {
+        color: var(--accent);
+        margin-top: 5px;
+        font-size: 0.8rem;
+        flex-shrink: 0;
+      }
+
+      .legal-section strong {
+        color: var(--text);
+      }
+
+      .highlight-box {
+        background: rgba(255, 107, 107, 0.06);
+        border: 1px solid rgba(255, 107, 107, 0.25);
+        border-left: 3px solid var(--danger);
+        border-radius: 10px;
+        padding: 18px 20px;
+        margin: 18px 0;
+        display: flex;
+        gap: 14px;
+      }
+
+      .highlight-box i {
+        color: var(--danger);
+        font-size: 1.1rem;
+        margin-top: 2px;
+      }
+
+      .highlight-box p {
+        margin-bottom: 0;
+        color: var(--text);
+      }
+
+      .contact-box {
+        margin-top: 20px;
+        background: rgba(0, 255, 204, 0.05);
+        border: 1px solid rgba(0, 255, 204, 0.2);
+        border-radius: 14px;
+        padding: 25px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        align-items: center;
+        justify-content: space-between;
+      }
+
+      .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .contact-info span {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        color: var(--muted);
+        font-size: 0.92rem;
+      }
+
+      .contact-info i {
+        color: var(--accent);
+        width: 18px;
+      }
+
+      /* WhatsApp Button */
+      .whatsapp-btn {
+        position: fixed;
+        bottom: 30px;
+        left: 30px;
+        width: 60px;
+        height: 60px;
+        background: #25d366;
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 28px;
+        text-decoration: none;
+        z-index: 1000;
+        box-shadow: 0 8px 25px rgba(37, 211, 102, 0.3);
+        transition: all 0.3s;
+      }
+
+      .whatsapp-btn:hover {
+        transform: scale(1.1);
+        box-shadow: 0 12px 30px rgba(37, 211, 102, 0.4);
+      }
+
+      /* Back to top */
+      .back-to-top {
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        width: 50px;
+        height: 50px;
+        background: rgba(255, 255, 255, 0.08);
+        border: 1px solid rgba(255, 255, 255, 0.15);
+        color: var(--text);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        text-decoration: none;
+        z-index: 1000;
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s;
+      }
+
+      .back-to-top.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .back-to-top:hover {
+        background: var(--accent);
+        color: #000;
+      }
+
+      /* Responsive */
+      @media (max-width: 900px) {
+        .legal-wrapper {
+          grid-template-columns: 1fr;
+        }
+
+        .toc {
+          position: static;
+          order: -1;
+        }
+
+        .toc-list {
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+
+        .legal-content {
+          padding: 30px 22px;
+        }
+
+        nav {
+          display: none;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-gradient"></div>
+    <div class="bg-particles" id="particles"></div>
+
+    <!-- Header -->
+    <header>
+      <div class="logo">
+        <div class="logo-icon">HW</div>
+        <span>Hidden Web</span>
+      </div>
+
+      <nav>
+        <a href="/#home" class="nav-link">Beranda</a>
+        <a href="/#harga" class="nav-link">Harga</a>
+        <a href="/#faq" class="nav-link">FAQ</a>
+        <button id="theme-toggle" title="Ganti tema" onclick="toggleTheme()">
+          <i class="fa-solid fa-moon" id="theme-icon"></i>
+        </button>
+      </nav>
+
+      <a href="https://wa.me/6285273788038" class="btn" target="_blank">
+        <i class="fa-brands fa-whatsapp"></i> Hubungi Kami
+      </a>
+    </header>
+
+    <!-- Page Hero -->
+    <section class="page-hero">
+      <div class="page-hero-content">
+        <span class="eyebrow"
+          ><i class="fa-solid fa-file-contract"></i> Dokumen Legal</span
+        >
+        <h1 class="page-title">Ketentuan Layanan</h1>
+        <p class="page-subtitle">
+          Halaman ini menjelaskan syarat dan ketentuan penggunaan jasa pembuatan
+          website Hidden Web. Dengan menggunakan layanan kami, Anda dianggap
+          telah membaca, memahami, dan menyetujui seluruh ketentuan di bawah
+          ini.
+        </p>
+        <div class="last-updated">
+          <i class="fa-solid fa-clock"></i>
+          Terakhir diperbarui: <span id="update-date">8 Agustus 2026</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Legal Content -->
+    <div class="legal-wrapper">
+      <!-- Table of Contents -->
+      <aside class="toc">
+        <div class="toc-title">Daftar Isi</div>
+        <ul class="toc-list" id="toc-list">
+          <li><a href="#pendahuluan">1. Pendahuluan</a></li>
+          <li><a href="#definisi">2. Definisi</a></li>
+          <li><a href="#ruang-lingkup">3. Ruang Lingkup Layanan</a></li>
+          <li><a href="#akun">4. Akun & Kewajiban Pengguna</a></li>
+          <li><a href="#pembayaran">5. Pembayaran & Pengerjaan</a></li>
+          <li><a href="#revisi">6. Revisi & Pembatalan</a></li>
+          <li>
+            <a href="#kekayaan-intelektual">7. Hak Kekayaan Intelektual</a>
+          </li>
+          <li><a href="#tanggung-jawab">8. Batasan Tanggung Jawab</a></li>
+          <li><a href="#privasi">9. Privasi Data</a></li>
+          <li><a href="#perubahan">10. Perubahan Ketentuan</a></li>
+          <li><a href="#hukum">11. Hukum yang Berlaku</a></li>
+          <li><a href="#kontak">12. Hubungi Kami</a></li>
+        </ul>
+      </aside>
+
+      <!-- Content -->
+      <main class="legal-content">
+        <div class="legal-section" id="pendahuluan">
+          <h2><span class="section-number">1</span> Pendahuluan</h2>
+          <p>
+            Selamat datang di <strong>Hidden Web</strong>. Ketentuan Layanan
+            ("Ketentuan") ini mengatur penggunaan jasa pembuatan dan
+            pengembangan website yang kami sediakan melalui situs, WhatsApp,
+            maupun kanal komunikasi resmi lainnya.
+          </p>
+          <p>
+            Dengan memesan, membayar, atau menggunakan layanan kami dalam bentuk
+            apa pun, Anda ("Klien") menyatakan setuju untuk terikat oleh seluruh
+            Ketentuan yang tercantum di halaman ini.
+          </p>
+        </div>
+
+        <div class="legal-section" id="definisi">
+          <h2><span class="section-number">2</span> Definisi</h2>
+          <ul>
+            <li>
+              <i class="fa-solid fa-circle"></i>
+              <span
+                ><strong>"Kami" / "Hidden Web"</strong> merujuk pada penyedia
+                jasa pembuatan website yang dijalankan sesuai ketentuan
+                ini.</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-circle"></i>
+              <span
+                ><strong>"Klien" / "Anda"</strong> merujuk pada individu atau
+                badan usaha yang menggunakan atau memesan layanan kami.</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-circle"></i>
+              <span
+                ><strong>"Layanan"</strong> merujuk pada seluruh jasa pembuatan,
+                desain, pengembangan, dan pemeliharaan website yang kami
+                tawarkan.</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-circle"></i>
+              <span
+                ><strong>"Materi Klien"</strong> merujuk pada teks, gambar,
+                logo, dan konten lain yang diserahkan Klien untuk digunakan
+                dalam proyek.</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="ruang-lingkup">
+          <h2><span class="section-number">3</span> Ruang Lingkup Layanan</h2>
+          <p>
+            Layanan yang kami sediakan mengacu pada paket yang dipilih Klien
+            sebagaimana tercantum pada halaman Harga, meliputi namun tidak
+            terbatas pada:
+          </p>
+          <ul>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span>Desain dan pengembangan tampilan website (UI/UX).</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span
+                >Implementasi fitur sesuai spesifikasi paket yang dipilih.</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span
+                >Pengujian fungsional dasar sebelum website diserahkan.</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span
+                >Dukungan teknis pasca-peluncuran sesuai durasi yang tercantum
+                pada paket.</span
+              >
+            </li>
+          </ul>
+          <p>
+            Fitur, layanan hosting pihak ketiga, domain, atau integrasi tambahan
+            di luar cakupan paket akan dikenakan biaya terpisah dan disepakati
+            lebih lanjut.
+          </p>
+        </div>
+
+        <div class="legal-section" id="akun">
+          <h2>
+            <span class="section-number">4</span> Akun & Kewajiban Pengguna
+          </h2>
+          <p>Sebagai pengguna layanan, Klien bertanggung jawab untuk:</p>
+          <ul>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span
+                >Memberikan informasi, materi, dan brief proyek yang akurat dan
+                lengkap.</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span
+                >Menjaga kerahasiaan kredensial akun (email, panel admin,
+                dsb).</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span
+                >Memastikan materi yang diserahkan tidak melanggar hak pihak
+                ketiga.</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span
+                >Memberikan tanggapan/persetujuan pada setiap tahap pengerjaan
+                secara tepat waktu.</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="pembayaran">
+          <h2><span class="section-number">5</span> Pembayaran & Pengerjaan</h2>
+          <p>
+            Pembayaran dilakukan sesuai skema yang disepakati (penuh atau
+            bertahap/cicilan) sebagaimana tercantum pada kalkulator harga atau
+            invoice resmi yang kami terbitkan.
+          </p>
+          <ul>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span
+                >Pengerjaan proyek dimulai setelah pembayaran tahap pertama
+                diterima.</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span
+                >Estimasi waktu pengerjaan mengikuti timeline yang dipilih pada
+                saat pemesanan.</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span
+                >Keterlambatan Klien dalam memberikan materi atau persetujuan
+                dapat memperpanjang durasi pengerjaan.</span
+              >
+            </li>
+          </ul>
+          <div class="highlight-box">
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            <p>
+              Biaya yang telah dibayarkan tidak dapat dikembalikan
+              (non-refundable) setelah pengerjaan proyek dimulai, kecuali
+              disepakati lain secara tertulis oleh kedua belah pihak.
+            </p>
+          </div>
+        </div>
+
+        <div class="legal-section" id="revisi">
+          <h2><span class="section-number">6</span> Revisi & Pembatalan</h2>
+          <p>
+            Jumlah revisi mengikuti ketentuan paket yang dipilih. Revisi di luar
+            cakupan paket (perubahan besar pada struktur, fitur, atau konsep
+            desain) dapat dikenakan biaya tambahan.
+          </p>
+          <p>
+            Pembatalan proyek oleh Klien setelah pengerjaan berjalan akan
+            diperhitungkan berdasarkan progres pekerjaan yang telah diselesaikan
+            pada saat pembatalan diajukan.
+          </p>
+        </div>
+
+        <div class="legal-section" id="kekayaan-intelektual">
+          <h2>
+            <span class="section-number">7</span> Hak Kekayaan Intelektual
+          </h2>
+          <p>
+            Hak cipta atas kode dan aset desain hasil pengerjaan akan dialihkan
+            sepenuhnya kepada Klien setelah pelunasan pembayaran.
+          </p>
+          <ul>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span>Materi Klien tetap menjadi milik Klien sepenuhnya.</span>
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span>
+                Kami berhak menampilkan hasil proyek sebagai portofolio, kecuali
+                Klien meminta secara tertulis untuk tidak dipublikasikan.
+              </span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="tanggung-jawab">
+          <h2><span class="section-number">8</span> Batasan Tanggung Jawab</h2>
+          <p>
+            Kami berupaya memberikan layanan dengan kualitas terbaik, namun
+            tidak bertanggung jawab atas kerugian yang timbul akibat:
+          </p>
+          <ul>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span
+                >Gangguan pada layanan pihak ketiga (hosting, domain, payment
+                gateway, dll).</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span
+                >Penyalahgunaan akun atau kelalaian Klien dalam menjaga keamanan
+                data.</span
+              >
+            </li>
+            <li>
+              <i class="fa-solid fa-check"></i>
+              <span
+                >Perubahan kebijakan platform pihak ketiga yang memengaruhi
+                fungsi website.</span
+              >
+            </li>
+          </ul>
+        </div>
+
+        <div class="legal-section" id="privasi">
+          <h2><span class="section-number">9</span> Privasi Data</h2>
+          <p>
+            Kami menjaga kerahasiaan data dan materi yang diberikan Klien, dan
+            hanya menggunakannya untuk keperluan pengerjaan proyek. Informasi
+            tidak akan dibagikan ke pihak ketiga tanpa persetujuan, kecuali
+            diwajibkan oleh hukum yang berlaku.
+          </p>
+        </div>
+
+        <div class="legal-section" id="perubahan">
+          <h2><span class="section-number">10</span> Perubahan Ketentuan</h2>
+          <p>
+            Kami dapat memperbarui Ketentuan Layanan ini dari waktu ke waktu.
+            Perubahan akan berlaku efektif sejak dipublikasikan pada halaman
+            ini. Penggunaan layanan yang berkelanjutan setelah perubahan
+            dianggap sebagai persetujuan atas Ketentuan yang telah diperbarui.
+          </p>
+        </div>
+
+        <div class="legal-section" id="hukum">
+          <h2><span class="section-number">11</span> Hukum yang Berlaku</h2>
+          <p>
+            Ketentuan ini diatur dan ditafsirkan sesuai dengan hukum yang
+            berlaku di Republik Indonesia. Segala sengketa yang timbul akan
+            diselesaikan secara musyawarah, atau melalui jalur hukum yang
+            berlaku apabila diperlukan.
+          </p>
+        </div>
+
+        <div class="legal-section" id="kontak">
+          <h2><span class="section-number">12</span> Hubungi Kami</h2>
+          <p>
+            Jika Anda memiliki pertanyaan mengenai Ketentuan Layanan ini,
+            silakan hubungi kami melalui:
+          </p>
+          <div class="contact-box">
+            <div class="contact-info">
+              <span
+                ><i class="fa-brands fa-whatsapp"></i> +62 852-7378-8038</span
+              >
+              <span
+                ><i class="fa-solid fa-envelope"></i> support@hiddenweb.id</span
+              >
+            </div>
+            <a href="https://wa.me/6285273788038" class="btn" target="_blank">
+              <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
+            </a>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <!-- WhatsApp Button -->
+    <a
+      href="https://wa.me/6285273788038"
+      class="whatsapp-btn"
+      target="_blank"
+      title="Chat via WhatsApp"
+    >
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to top -->
+    <a href="#" class="back-to-top" id="back-to-top" title="Kembali ke atas">
+      <i class="fa-solid fa-arrow-up"></i>
+    </a>
+
+    <script>
+      // ==================== PARTICLES (sama seperti halaman utama) ====================
+      function createParticles() {
+        const container = document.getElementById("particles");
+        const count = 25;
+        for (let i = 0; i < count; i++) {
+          const p = document.createElement("div");
+          p.className = "particle";
+          const size = Math.random() * 4 + 2;
+          p.style.width = size + "px";
+          p.style.height = size + "px";
+          p.style.left = Math.random() * 100 + "%";
+          p.style.animationDuration = Math.random() * 10 + 10 + "s";
+          p.style.animationDelay = Math.random() * 15 + "s";
+          container.appendChild(p);
+        }
+      }
+
+      // ==================== THEME TOGGLE ====================
+      function toggleTheme() {
+        document.body.classList.toggle("light-mode");
+        const icon = document.getElementById("theme-icon");
+        const isLight = document.body.classList.contains("light-mode");
+        icon.className = isLight ? "fa-solid fa-sun" : "fa-solid fa-moon";
+        localStorage.setItem("theme", isLight ? "light" : "dark");
+      }
+
+      (function initTheme() {
+        if (localStorage.getItem("theme") === "light") {
+          document.body.classList.add("light-mode");
+          document.getElementById("theme-icon").className = "fa-solid fa-sun";
+        }
+      })();
+
+      // ==================== ACTIVE TOC ON SCROLL ====================
+      const sections = document.querySelectorAll(".legal-section");
+      const tocLinks = document.querySelectorAll(".toc-list a");
+
+      function updateActiveToc() {
+        let currentId = "";
+        sections.forEach((section) => {
+          const rect = section.getBoundingClientRect();
+          if (rect.top <= 140) {
+            currentId = section.id;
+          }
+        });
+
+        tocLinks.forEach((link) => {
+          link.classList.toggle(
+            "active",
+            link.getAttribute("href") === "#" + currentId,
+          );
+        });
+      }
+
+      // ==================== BACK TO TOP ====================
+      const backToTop = document.getElementById("back-to-top");
+      function toggleBackToTop() {
+        if (window.scrollY > 400) {
+          backToTop.classList.add("show");
+        } else {
+          backToTop.classList.remove("show");
+        }
+      }
+
+      backToTop.addEventListener("click", function (e) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      });
+
+      window.addEventListener("scroll", function () {
+        updateActiveToc();
+        toggleBackToTop();
+      });
+
+      document.addEventListener("DOMContentLoaded", function () {
+        createParticles();
+        updateActiveToc();
+      });
+    </script>
+  </body>
+</html>
